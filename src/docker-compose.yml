@@ -1,0 +1,178 @@
+# # SERVICES
+services:
+# ## web-nginx
+    web:
+        container_name: web-nginx
+        image: nginx:alpine
+        volumes:
+            #NGINX-LOGS
+            - ./running/var/log/nginx:/var/log/nginx
+            #NGINX-CFG
+            # - ./running/etc/nginx/nginx.conf:/etc/nginx/nginx.conf:ro # base nginx-conf
+            - ./running/etc/nginx/conf.d:/etc/nginx/conf.d:ro # vhosts-conf
+            # - ./running/etc/nginx/sites-available/:/etc/nginx/sites-available
+            # - ./running/etc/nginx/sites-available/:/etc/nginx/sites-enabled
+            # - ./running/etc/nginx/ssl:/etc/nginx/ssl
+            # DOMAINS
+            - ./apps/domains:/var/www
+        # networks:
+            # - internal
+            # - web_php_db
+        ports:
+            - "80:80"
+            - "443:443"
+        depends_on:
+            - php
+        restart: unless-stopped
+# ## cgi-php-fpm
+    php:
+        container_name: cgi-php-fpm
+        image: php:fpm-alpine
+        volumes:
+            # PHP-LOGS
+            # - ./running/var/log/php:/var/log/php
+            # - ./running/var/log/php/php.log:/var/log/fpm-php.www.log
+            # PHP-CFG
+            # - ./running/etc/php/php.ini:/usr/local/etc/php/conf.d/php.ini:ro #Конфигурация php для php-fpm
+            # - ./running/etc/php/fpm.pool.d/domain.conf:/usr/local/etc/php-fpm.d/domain.conf:ro #Конфигурация площадки
+            # - ./running/etc/php:/usr/local/etc
+            #       /usr/local/etc/php-fpm.conf
+            #       /usr/local/etc/php-fpm.d/zz-docker.conf
+            #       /usr/local/etc/php-fpm.d/www.conf
+            # /
+            # DOMAINS
+            - ./apps/domains:/var/www
+        # cap_add:
+        #     - SYS_NICE
+        #     - DAC_READ_SEARCH
+        # networks:
+            # - internal
+            # - web_php_db
+        depends_on:
+            - db
+        restart: unless-stopped
+# ## db-mariadb
+    db:
+        container_name: db-mariadb
+        image: mariadb:latest
+        # volumes:
+            # DB-LOGS
+            # - ./running/var/log/mysql:/var/log/mysql #log файл
+            # - ./running/var/log/mariadb:/var/log/mariadb #log файл
+            # DB-CFG
+            # - ./running/etc/mariadb/conf.d:/etc/mysql/conf.d #:ro #Конфигурация mysql.
+            # - ./running/etc/mysql:/etc/mysql #Конфигурация mysql.
+            # - ./running/etc/mariadb:/etc/mariadb #Конфигурация mysql.
+            # DB-DATA
+            # - ./apps/db-mariadb-data:/var/lib/mysql
+        # env_file:
+            # - .env
+        environment:
+            MYSQL_ROOT_PASSWORD: example_root_password
+            # MYSQL_DATABASE: example_database
+            # MYSQL_USER: example_user
+            # MYSQL_PASSWORD: example_password
+        # command: '--default-authentication-plugin=mysql_native_password'
+        # networks:
+            # - internal
+            # - web_php_db
+            # - db_dbms
+        restart: unless-stopped
+# ## dbms-phpmyadmin
+    phpmyadmin:
+        container_name: dbms-phpmyadmin
+        image: phpmyadmin:latest
+        # environment:
+            # PMA_HOST: mariadb # Если контейнер называется db, то указывать не нужно
+            # PMA_USER: example_user
+            # PMA_PASSWORD: example_password
+            # MYSQL_ROOT_PASSWORD: example_root_password
+        # networks:
+            # - internal
+            # - db_dbms
+        ports:
+            - "8001:80"
+        restart: unless-stopped
+# ## services
+#
+# ### Some Notes
+# # # # # # # # Start
+# ```bash: sudo cp -r ./build ./running && sudo docker-compose up```
+# ```shell: Copy-Item -Path "./build" -Destination "./running" -Recurse; docker-compose up```
+# # # # # # # # Restart
+# ```bash: sudo docker-compose down && sudo rm -r ./running && sudo cp -r ./build ./running && sudo docker-compose up```
+# ```shell: docker-compose down; rm "./running" -Recurse; Copy-Item -Path "./build" -Destination "./running" -Recurse; docker-compose up```
+#
+#:compose-seq: container_name, image(build), volumes, environment, command, networks, ports, depends_on, restart
+###
+# # NETWORKS
+# networks:
+#     default:
+#     internal:
+#         driver: bridge
+#     web_php_db:
+#         driver: bridge
+#     db_dbms:
+#         driver: bridge
+#     samba_net:
+#         driver: bridge
+#         external: false # true
+# # VOLUMES
+# volumes:
+# 
+# # ARCHIVE Svc
+# ## panel-webmin
+    # webmin:
+    #     container_name: panel-webmin
+    #     # image: adferrand/webmin
+    #     image: johanp/webmin
+    #     restart: unless-stopped
+    #     volumes:
+    #         - ./webmin/data:/data
+    #     environment:
+    #         - WEBMIN_CONFIG=/data/webmin
+    #         - WEBMIN_VAR=/data/webmin
+    #     ports:
+    #         - "10000:10000"
+# ### 
+# ## fs-samba
+    # samba:
+    #     container_name: fs-samba
+    #     # image: dperson/samba
+    #     image: ubuntu:latest
+    #     # image: alpine:latest
+    #     # restart: unless-stopped
+    #     restart: always
+    #     volumes:
+    #         # SAMBA-START-SCRIPT
+    #         - ./build/other/samba-start.sh:/samba-start.sh:ro
+    #         # SAMBA-CFG
+    #         # - ./running/etc/samba/smb_1_d.conf:/etc/samba/smb.conf:ro #:ro
+    #         # - ./running/etc/samba/smb_2_u.conf:/etc/samba/smb.conf:ro #:ro
+    #         - ./running/etc/samba/smb_2_u.conf:/t_smb.conf #:ro
+    #         # SAMBA-SHARED
+    #         # - ./apps/samba-shared:/srv/samba #:z | :ro
+    #         - ./apps/samba-shared:/home/john/shared #:z | :ro
+    #     tmpfs:
+    #         - /tmp
+    #     # environment:
+    #     #     - USERID=1000
+    #     #     - GROUPID=1000
+    #     #     - USERNAME=username
+    #     #     - PASSWORD=password
+    #     command: ["sh", "/samba-start.sh"]
+    #     # tty: true
+    #     # stdin_open: true
+    #     networks:
+    #         - default
+    #     ports:
+    #         # - "137:137/udp" # required to advertise shares (NMBD)
+    #         # - "138:138/udp" # required to advertise shares (NMBD)
+    #         # - "139:139/tcp" # default smb port
+    #         # # - "445:445/tcp" # default smb port
+    #         # - "8004:445"
+    #         - "137:137"
+    #         - "138:138"
+    #         - "139:139"
+    #         - "8004:445"
+# ### 
