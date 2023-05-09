@@ -8,8 +8,9 @@ services:
             #` NGINX-LOGS
             - ./running/var/log/nginx:/var/log/nginx
             #` NGINX-CFG
-            - ./build/etc/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-            - ./build/etc/nginx/conf.d:/etc/nginx/conf.d:ro
+            - ./build/etc/nginx/nginx.conf:/etc/nginx/nginx.conf:ro #` Базовый конфиг NGINX
+            - ./build/etc/nginx/conf.d:/etc/nginx/conf.d:ro         #` Дополнительные настройки (по умолчанию подключаются в базовый конфиг в контекст http)
+            - ./build/etc/nginx/snippets:/etc/nginx/snippets:ro     #` Шаблоны настроек (опционально) - Реализуют принцип DRY
             #` DOMAINS
             - ./apps/domains:/var/www
         ports:
@@ -21,24 +22,13 @@ services:
 # ## cgi-php-fpm
     php:
         container_name: cgi-php-fpm
-        image: php:fpm-alpine
+        build:
+            context: ./build/dockerfiles
+            dockerfile: php.Dockerfile
         volumes:
-            #` PHP-LOGS
-            #- ./running/var/log/php:/var/log/php
-            #- ./running/var/log/php/php.log:/var/log/fpm-php.www.log
-            #` PHP-CFG
-            #- ./running/etc/php/php.ini:/usr/local/etc/php/conf.d/php.ini:ro #Конфигурация php для php-fpm
-            #- ./running/etc/php/fpm.pool.d/domain.conf:/usr/local/etc/php-fpm.d/domain.conf:ro #Конфигурация площадки
-            #- ./running/etc/php:/usr/local/etc
-            #       /usr/local/etc/php-fpm.conf
-            #       /usr/local/etc/php-fpm.d/zz-docker.conf
-            #       /usr/local/etc/php-fpm.d/www.conf
-            # /
             #` DOMAINS
             - ./apps/domains:/var/www
-        #cap_add:
-            #- SYS_NICE
-            #- DAC_READ_SEARCH
+        env_file: .env
         depends_on:
             - db
         restart: unless-stopped
@@ -47,61 +37,40 @@ services:
         container_name: db-mariadb
         image: mariadb:latest
         volumes:
-            #` DB-LOGS
-            #- ./running/var/log/mysql:/var/log/mysql #log файл
-            #- ./running/var/log/mariadb:/var/log/mariadb #log файл
-            #` DB-CFG
-            #- ./running/etc/mariadb/conf.d:/etc/mysql/conf.d #:ro #Конфигурация mysql.
-            #- ./running/etc/mysql:/etc/mysql #Конфигурация mysql.
-            #- ./running/etc/mariadb:/etc/mariadb #Конфигурация mysql.
             #` DB-DATA
-            #- ./apps/db-mariadb-data:/var/lib/mysql #` For saving
-            - ./running/db-mariadb-data:/var/lib/mysql #` For debugging
+            # - ./apps/db-mariadb-data:/var/lib/mysql #` * For saving
+            - ./running/db-mariadb-data:/var/lib/mysql #` * For debugging
             #- ./build/initial/sql-scripts/:/docker-entrypoint-initdb.d/ #` Initial SQL-scripts
-        #env_file:
-            #- .env
-        environment:
-            MYSQL_ROOT_PASSWORD: example_root_password
-            MYSQL_DATABASE: example_database
-            # MYSQL_USER: example_user
-            # MYSQL_PASSWORD: example_password
         command:
             - --character-set-server=utf8mb4
             - --collation-server=utf8mb4_unicode_ci
             - --skip-character-set-client-handshake
-            #- --default-authentication-plugin=mysql_native_password
-        #ports:
-            #- "3306:3306"
+        env_file: .env
+        ports:
+            - "3306:3306" #` Можно открыть порт БД для подключения через иные СУБД (рекомендуется)
         restart: unless-stopped
 # ## dbms-phpmyadmin
     phpmyadmin:
         container_name: dbms-phpmyadmin
         image: phpmyadmin:latest
-        #environment:
-            #PMA_HOST: mariadb #` Если service называется db, то указывать не нужно
-            #PMA_USER: example_user
-            #PMA_PASSWORD: example_password
-            #MYSQL_ROOT_PASSWORD: example_root_password
+        #env_file: .env
         ports:
             - "8001:80"
         restart: unless-stopped
 # ## services
 #
 # ### Some Notes
-# ```docker-compose down; docker-compose up```
+# ```bash: sudo docker-compose down && sudo docker-compose up```
+# ```ps: docker-compose down; docker-compose up```
+#
+# ```bash: sudo docker-compose down && sudo rm -r ./running && sudo docker-compose up```
+# ```ps: docker-compose down; rm "./running" -Recurse; docker-compose up```
 #
 # ```bash: sudo docker-compose down && sudo rm -r ./running && sudo cp -r ./build ./running && sudo docker-compose up```
-# ```shell: docker-compose down; rm "./running" -Recurse; Copy-Item -Path "./build" -Destination "./running" -Recurse; docker-compose up```
-# ```shell: docker-compose down; rm "./running" -Recurse; docker-compose up```
-#
-# ```bash: sudo cp -r ./build ./running && sudo docker-compose up```
-# ```shell: Copy-Item -Path "./build" -Destination "./running" -Recurse; docker-compose up```
-#
-# ```bash: sudo docker-compose down && sudo rm -r ./running && sudo cp -r ./build ./running && sudo docker-compose up```
-# ```shell: docker-compose down; rm "./running" -Recurse; Copy-Item -Path "./build" -Destination "./running" -Recurse; docker-compose up```
+# ```ps: docker-compose down; rm "./running" -Recurse; Copy-Item -Path "./build" -Destination "./running" -Recurse; docker-compose up```
 #
 #:my-compose-seq: container_name, image(build), volumes, environment, command, networks, ports, depends_on, restart
-###
+#
 # # NETWORKS
 # networks:
 #     default:

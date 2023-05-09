@@ -10,6 +10,7 @@ Thumbs.db
 *.bak
 
 # Игнорирование файлов секретных данных или конфиденциальных файлов
+.env
 # secrets.txt
 # credentials.json
 

@@ -1,10 +1,10 @@
 <?php
 
 return [
-    'host' => 'localhost',
-    'dbname' => 'tera',
-    'password' => 'TeraBazist&3282',
-    'user' => 'TERABOZIK',
+    'host' => 'db',
+    'dbname' => getenv('MYSQL_DATABASE'),
+    'user' => getenv('MYSQL_USER'),
+    'password' => getenv('MYSQL_PASSWORD'),
 ];
 
 ?>
