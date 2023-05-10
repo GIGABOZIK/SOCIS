@@ -27,6 +27,9 @@ session_start();
 $router = new Router;
 $router->run();
 
+// printArray($_SERVER);
+// echo trim($_SERVER['REQUEST_URI'], '/');
+
 /*
 & Схема фреймворка (потом дополнительно подписать все нумерованным списком)
 ! index.php
@@ -77,6 +80,7 @@ $router->run();
 // $gc = new GCore('MAIN');
 // $gc
 echo '<hr>';
-include 'temp_info.php';
+echo '/index.php :: Hello World!))0)';
+// include 'temp_info.php';
 
 ?>

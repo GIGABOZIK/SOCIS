@@ -11,8 +11,11 @@
     <script src="/public/scripts/form.js"></script>
 </head>
 <body>
-    app - views - layouts - default<br>
-    content:<br>
-    <?php echo $content; ?>
+    <h1>app - views - layouts - default</h1><br>
+    <h2>content:</h2><br>
+    <?php
+    echo $content;
+    // require $viewFilePath;
+    ?>
 </body>
 </html>

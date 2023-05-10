@@ -1,20 +1,32 @@
 <?php
 
+/*
+# Для каждого маршрута необходимо создать:
+> Запись самого маршрута в этом файле (указать controller и action)
+    @ /config/routes.php
+    > Обработчик (контроллер) (может быть один для нескольких маршрутов) (файл-класс)
+        @ /controllers/`Controller`Controller.php
+    > Поведение (действие) в указанном контроллере (метод класса)
+        @ `Controller`Controller/`action`Action()
+> Корректный список прав доступа с указанием каждого созданного поведения (return [])
+    @ /acl/`controller`ACL.php
+> Отображение (отправляемый html фрагмент в <body>)
+    @ /views/`controller`/`action'.php
+> чота еще
+*/
 return [
-    /*
-    # Для каждого маршрута необходимо создать:
-    > Запись самого маршрута в этом файле (указать controller и action)
-        @ /config/routes.php
-        > Обработчик (контроллер) (может быть один для нескольких маршрутов) (файл-класс)
-            @ /controllers/`Controller`Controller.php
-        > Поведение (действие) в указанном контроллере (метод класса)
-            @ `Controller`Controller/`action`Action()
-    > Корректный список прав доступа с указанием каждого созданного поведения (return [])
-        @ /acl/`controller`ACL.php
-    > Отображение (отправляемый html фрагмент в <body>)
-        @ /views/`controller`/`action'.php
-    > чота еще
-    */
+    //# EXAMPLE
+    'example' => [
+        'controller' => 'example',
+        'action' => 'index',
+    ],
+    'example/exampleAction' => [
+        'controller' => 'example',
+        'action' => 'test',
+    ],
+    //
+
+
 
     //# Главная страница
     '' => [

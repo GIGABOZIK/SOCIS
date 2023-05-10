@@ -22,10 +22,14 @@ class Router {
 
     public function match() {
         $url = trim($_SERVER['REQUEST_URI'], '/'); //? удаляет лишние '/' в начале и в конце строки
+        // echo parse_url($_SERVER['REQUEST_URI']);
+        // printArray(parse_url($_SERVER['REQUEST_URI']));
+        $url = parse_url($url)['path']; //? Убрать часть GET
         foreach ($this->routes as $route => $routeParams) {
-            // if (preg_match($route, $url))
+            // if (preg_match($route, $url)) {
             if (preg_match($route, $url, $matches)) {
                 //? что-то с $matches будет еще
+                // printArray($matches);
                 $this->routeParams = $routeParams; //? В свойство записываются только конкретные параметры
                 return true;
             }

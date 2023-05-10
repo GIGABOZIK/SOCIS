@@ -3,7 +3,6 @@
 namespace app\controllers;
 
 use app\core\Controller;
-// use app\lib\Db; //!
 
 
 class MainController extends Controller {
