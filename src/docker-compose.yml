@@ -38,8 +38,8 @@ services:
         image: mariadb:latest
         volumes:
             #` DB-DATA
-            # - ./apps/db-mariadb-data:/var/lib/mysql #` * For saving
-            - ./running/db-mariadb-data:/var/lib/mysql #` * For debugging
+            - ./apps/db-mariadb-data:/var/lib/mysql #` * For saving
+            # - ./running/db-mariadb-data:/var/lib/mysql #` * For debugging
             #- ./build/initial/sql-scripts/:/docker-entrypoint-initdb.d/ #` Initial SQL-scripts
         command:
             - --character-set-server=utf8mb4
