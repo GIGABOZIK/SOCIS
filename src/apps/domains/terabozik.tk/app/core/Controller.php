@@ -14,9 +14,9 @@ abstract class Controller {
         if (!$this->checkAcl()) {
             View::errorCode(403);
         }
-        $this->view = new View($routeParams);
+        $this->view = new View($this->routeParams);
         // $this->before();
-        $this->model = $this->loadModel($routeParams['controller']);
+        $this->model = $this->loadModel($this->routeParams['controller']);
     }
 
     public function loadModel($controllerName) {

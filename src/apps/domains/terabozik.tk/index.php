@@ -14,7 +14,9 @@ require_once 'app/lib/dev.php';
 
 //? Функция автозагрузки классов
 spl_autoload_register(function($class) {
+    // Получаем путь к файлу из имени класса
     $path = str_replace('\\', '/', $class.'.php');
+    // Если в текущей папке есть такой файл, то выполняем код из него
     if (file_exists($path)) require_once $path;
 });
 

@@ -7,11 +7,11 @@ use PDO;
 
 class Db {
 
-    protected $db;
+    protected $dbLink;
 
     public function __construct() {
         $config = require 'app/config/db.php';
-        $this->db = new PDO('mysql:'
+        $this->dbLink = new PDO('mysql:'
             . 'host=' . $config['host']
             . ';dbname=' . $config['dbname'],
             $config['user'],
@@ -21,7 +21,7 @@ class Db {
     }
 
     public function query($sql, $params = []) {
-        $stmt = $this->db->prepare($sql);
+        $stmt = $this->dbLink->prepare($sql);
         if (!empty($params)) {
             foreach ($params as $key => $val) {
                 $stmt->bindValue(':' . $key, $val);
@@ -29,7 +29,7 @@ class Db {
         }
         $stmt->execute();
         return $stmt;
-        // $query = $this->db->query($sql);
+        // $query = $this->dbLink->query($sql);
         // return $query;
     }
 
