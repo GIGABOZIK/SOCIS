@@ -3,14 +3,14 @@
 return [
     'all' => [
         'index',
-        'login',
-        'signup',
     ],
     'authorized' => [
-        //
+        'profile',
+        'orders',
     ],
     'guest' => [
-        //
+        'signup',
+        'login',
     ],
     'admin' => [
         //

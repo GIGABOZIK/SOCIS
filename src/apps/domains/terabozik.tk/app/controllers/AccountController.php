@@ -13,7 +13,8 @@ class AccountController extends Controller {
 
     public function indexAction() {
         //
-        echo 'accountIndex';
+        // echo 'accountIndex';
+        $this->view->render('Аккаунт');
     }
 
     public function loginAction() {
@@ -21,8 +22,8 @@ class AccountController extends Controller {
         // $this->view->redirect('https://google.com');
 
         if (!empty($_POST)) {
-            // $this->view->message('success))', '123123123123');
-            $this->view->location('/account/signup');
+            $this->view->message('success))', '123123123123');
+            // $this->view->location('/account/signup');
         }
 
         $this->view->render('Вход');

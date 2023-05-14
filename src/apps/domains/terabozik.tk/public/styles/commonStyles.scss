@@ -1,0 +1,43 @@
+
+$sbar-width: 300px;
+$header-height: 70px;
+
+body {
+    margin: 0;
+}
+
+.page-sidebar {
+    display: none;
+    width: $sbar-width;
+    //
+}
+
+.page-header {
+    display: flex;
+    height: $header-height;
+
+    .left {
+        width: $sbar-width;
+    }
+
+    .logo {
+        
+    }
+    .navigation {
+        // 
+    }
+    .account {
+        // 
+    }
+}
+
+
+.page-main {
+    //
+    .title {
+        //
+    }
+    .content {
+        //
+    }
+}

@@ -7,6 +7,12 @@ use app\core\Controller;
 
 class ExampleController extends Controller {
 
+    //` Перегрузка конструктора
+    // public function __construct($arg) {
+    //     parent::__construct($arg);
+    //     $this->view->layout = 'example';
+    // }
+
     public function indexAction() {
         //` Выполнение перенаправлений
         // $this->view->redirect('https://google.com');
@@ -28,7 +34,6 @@ class ExampleController extends Controller {
 
         //` Отображение контента страницы (запуск шаблона)
         $this->view->render($title = 'ePage-Index', $vars);
-
     }
 
     public function testAction() {
@@ -36,11 +41,15 @@ class ExampleController extends Controller {
         //` что влечет за собой повреждение структуры конечного документа)
         // echo '<hr>/app/controllers/ExampleController :: testAction()';
         
-        //` Разное
-        // if (!empty($_POST)) {
-        // if (!empty($_GET)) {
-        if (isset($_GET['test'])) {
+        //` Обработка ajax
+        if (!empty($_POST)) {
+            $this->view->message('success))', '123123123123');
+            // $this->view->location('/account/signup');
+        }
+        if (isset($_GET['test1'])) {
             $this->view->message('success', '123123123123');
+        }
+        if (isset($_GET['test2'])) {
             $this->view->location('/');
         }
 

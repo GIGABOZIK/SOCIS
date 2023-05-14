@@ -9,6 +9,7 @@
 // Подключение дополнительных функций
 require_once 'app/lib/dev.php';
 // require_once APP_PATH . '/lib/dev.php';
+require_once 'app/lib/old-f-info.php';
 
 // use app\core\Router;
 
@@ -79,8 +80,11 @@ $router->run();
 // require_once $_SERVER['DOCUMENT_ROOT'] . '/app/core/GCore.php';
 // $gc = new GCore('MAIN');
 // $gc
-echo '<hr>';
-echo '/index.php :: Hello World!))0)';
+
+// echo '<hr>';
+// echo '/index.php :: Hello World!))0)';
+// printArray($_SESSION);
+
 // include 'temp_info.php';
 
 ?>

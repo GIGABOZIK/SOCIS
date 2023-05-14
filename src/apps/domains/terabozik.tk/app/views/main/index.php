@@ -1,22 +1,8 @@
-<h3>ГЛАВНАЯ СТРАНИЦА (app - views - main - index)</h3>
-<?php
+<!-- <h3>ГЛАВНАЯ СТРАНИЦА (app - views - main - index)</h3> -->
 
-
-// echo 'Имя: ' . $name . '<br>Возраст: ' . $age;
-
-// debug($array);
-?>
-
-<?php foreach ($news as $val): ?>
-
-    <h3><?php echo $val['title'] ?></h3>
-    <p><?php echo $val['description'] ?></p>
-    <hr>
-
-<?php endforeach; ?>
-
-<?php
-
-// debug($news);
-
-?>
+<div class="title">
+    main-title
+</div>
+<div class="content">
+    main-content
+</div>

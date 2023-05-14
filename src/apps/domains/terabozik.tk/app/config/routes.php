@@ -25,16 +25,57 @@ return [
         'action' => 'test',
     ],
     //
-
-
-
-    //# Главная страница
+    //
+    //# SOCIS
+    //## Главная страница
     '' => [
         'controller' => 'main',
         'action' => 'index',
     ],
+    //### Контакты
+    'contacts' => [
+        'controller' => 'main',
+        'action' => 'contacts',
+    ],
+    //### Услуги
+    'services' => [
+        'controller' => 'main',
+        'action' => 'services',
+    ],
+    //## Личный кабинет
+    'account' => [
+        'controller' => 'account',
+        'action' => 'index',
+    ],
+    //### Страница профиля
+    'account/profile' => [
+        'controller' => 'account',
+        'action' => 'profile',
+    ],
+    //### Регистрация
+    'account/signup' => [
+        'controller' => 'account',
+        'action' => 'signup',
+    ],
+    //### Авторизация
+    'account/login' => [
+        'controller' => 'account',
+        'action' => 'login',
+    ],
+    //### Заказы
+    'account/orders' => [
+        'controller' => 'account',
+        'action' => 'orders',
+    ],
+    //## 
 
-    //# REST API
+
+
+
+
+
+
+    //# REST API - переложить на поддомен
     'api' => [
         'controller' => 'api',
         'action' => 'index',
@@ -46,41 +87,12 @@ return [
         'action' => 'index',
     ],
 
-    //## Страница быстрого запуска (список сайтов)
+    //## Страница быстрого запуска
     'utilities/quickbar' => [
         'controller' => 'utilities',
         'action' => 'quickbar',
     ],
     //## 
-
-    //# Пасхалки
-    'easter' => [
-        'controller' => 'easter',
-        'action' => 'index',
-    ],
-    //## 
-
-    //# Страница профиля
-    'account' => [
-        'controller' => 'account',
-        'action' => 'index',
-    ],
-    //## Регистрация
-    'account/signup' => [
-        'controller' => 'account',
-        'action' => 'signup',
-    ],
-    //## Авторизация
-    'account/login' => [
-        'controller' => 'account',
-        'action' => 'login',
-    ],
-
-    //# чота еще
-    'news/show' => [
-        'controller' => 'news',
-        'action' => 'show',
-    ],
     //% + Можно алиасы делать.. но не надо..
 ];
 

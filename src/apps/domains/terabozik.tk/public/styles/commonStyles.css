@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+}
+
+.page-sidebar {
+  display: none;
+  width: 300px;
+}
+
+.page-header {
+  display: flex;
+  height: 70px;
+}
+.page-header .left {
+  width: 300px;
+}/*# sourceMappingURL=commonStyles.css.map */

@@ -1,0 +1,12 @@
+
+*:not(html, body) {
+    border: solid 1px;
+    /* color:antiquewhite */
+}
+
+*:hover     { border-color: #FF0000; }
+
+* *         { border-color: #fbfbb9; }
+* * *       { border-color: #b3ffe6; }
+* * * *     { border-color: #ffa9ff; }
+* * * * *   { border-color: #9adfff; }

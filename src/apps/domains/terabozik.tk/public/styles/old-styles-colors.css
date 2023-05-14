@@ -1,0 +1,379 @@
+/* Оформление документа, в общем */
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ GGBZK ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+/* Fonts */
+/* ComicSans MS, Montserrat, Cambria, Calibri, Candara, Courier New, Trebuchet MS, Helvetica, Arial, Mv Boli */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+:root {
+    /* Базовый */
+    --Ff-1: 'Trebuchet MS', 'Cambria', 'Helvetica', 'Arial', 'sans-serif';
+    /* Для заголовков */
+    --Ff-2: 'Montserrat', 'Trebuchet MS', 'Candara', 'Helvetica', 'Arial', 'sans-serif';
+    /* Для текста */
+    --Ff-3: 'Comic Sans MS', 'Trebuchet MS', 'Cambria', 'Helvetica', 'Arial', 'sans-serif';
+    /* Рукописный */
+    --Ff-4: 'MV Boli', 'Comic Sans MS', 'Segoe Print', 'Segoe Script', 'Brush Script MT', 'Balthazar', 'Tempus Sans Itc';
+    /* Символы */
+    --Ff-5: 'Geotype TT', 'Marlett', 'Webdings', 'Wingdings';
+    /* Цвета */
+    --C__text: var(--C_white);
+}
+
+
+
+/* Wrapping Rules:
+wrap-TAG
+    TAG
+        sub-TAG \ TAG-inner
+            elems \ content \ box \ item
+        /sub-TAG \ TAG-inner
+    /TAG
+/wrap-TAG
+*/
+
+
+:root {
+/* Цвета */
+    /* цвет */ /* =r+g+b (0 -> 255*3) (000 -> 765) (383*2) */
+    /*  gra ~ gray   - темный оттенки серого\черного */
+    --C_black:                  #000000; /* =000 */
+    --C_vk_03:                  #101010; /* =048 */
+    --C_almost_black_low:       #131313; /* =057 */
+    --C_almost_black:           #141414; /* =060 */
+    --C_vk_01:                  #191919; /* =075 */
+    --C_graphite_low:           #1b1b1b; /* =081 */
+    --C_graphite:               #1c1c1c; /* =084 */
+    --C_w8_b01:                 #252525; /* =111 */
+    --C_carbon:                 #282828; /* =120 */
+    --C_vk_02:                  #2C2D2F; /* =136 */
+    --C_c3d_02:                 #333333; /* =153 */
+    --C_darkslategray:          #2F4F4F; /* =205 */
+    --C_c3d_01:                 #484848; /* =216 */
+    --C_other_04:               #4a4b4c; /* =225 */
+    --C_dimgray:                #696969; /* =315 */
+    --C_slategray:              #708090; /* =384 */
+    --C_gray:                   #808080; /* =384 */
+    --C_lightslategray:         #778899; /* =408 */
+    --C_asbestos_fl:            #7F8C8D; /* =408 */
+    --C_concrete_fl:            #95A5A6; /* =480 */
+    --C_aluminium:              #A5A5A5; /* =495 */
+    --C_darkgray:               #A9A9A9; /* =507 */
+    --C_silver:                 #C0C0C0; /* =576 */ /* ~ */
+    --C_light_gray_2:           #C0C0C0; /* =576 */ /* ~ */
+    --C_silver_fl:              #BDC3C7; /* =583 */
+    --C_lightgray:              #D3D3D3; /* =633 */
+    --C_light_gray_1:           #D7D7D7; /* =645 */
+    /*  red ~ red    - оттенки красного\бордового\коричневого */
+    --C_w8_b03:                 #4e0000; /* =078 */
+    --C_maroon:                 #800000; /* =128 */
+    --C_darkred:                #8B0000; /* =139 */
+    --C_w8_a06:                 #B01E00; /* =206 */
+    --C_w8_b12:                 #B81B1B; /* =238 */
+    --C_firebrick:              #B22222; /* =246 */
+    --C_brown:                  #A52A2A; /* =249 */
+    --C_w8_a04:                 #ae113d; /* =252 */
+    --C_word_01:                #E60C0C; /* =254 */
+    --C_red:                    #FF0000; /* =255 */
+    --C_pomegranate_fl:         #C0392B; /* =292 */
+    --C_crimson:                #DC143C; /* =300 */
+    --C_w8_a14:                 #FF2E12; /* =319 */
+    --C_orangered:              #FF4500; /* =324 */
+    --C_scarlet:                #FC2847; /* =363 */
+    --C_alizarin_fl:            #E74C3C; /* =367 */
+    --C_soft_red_1:             #FA3346; /* =371 */
+    --C_indianred:              #CD5C5C; /* =389 */
+    --C_deep_coral:             #FF4040; /* =383 */
+    --C_fuzi_vuzi:              #CC6666; /* =408 */
+    --C_brick_fence:            #B38070; /* =419 */
+    --C_tomato:                 #FF6347; /* =425 */
+    --C_soft_red_2:             #e76e63; /* =440 */
+    --C_coral:                  #FF7F50; /* =462 */
+    --C_rosybrown:              #BC8F8F; /* =474 */
+    --C_salmon:                 #FA8072; /* =492 */
+    --C_lightcoral:             #F08080; /* =496 */
+    --C_darksalmon:             #E9967A; /* =505 */
+    --C_lightsalmon:            #FFA07A; /* =537 */
+    /*  ora ~ orange - оттенки оранжевого */
+    --C_w8_b02:                 #2e1700; /* =069 */
+    --C_w8_a05:                 #632f00; /* =146 */
+    --C_saddlebrown:            #8B4513; /* =227 */
+    --C_brick_old:              #8a4e37; /* =271 */
+    --C_sienna:                 #A0522D; /* =287 */
+    --C_pumkin_fl:              #d35400; /* =295 */
+    --C_chocolate:              #D2691E; /* =345 */
+    --C_w8_b11:                 #e56c19; /* =362 */
+    --C_c3d_04:                 #ff8000; /* =383 */
+    --C_carrot_fl:              #e67e22; /* =390 */
+    --C_darkorange:             #FF8C00; /* =395 */
+    --C_peru:                   #CD853F; /* =401 */
+    --C_w8_a24:                 #ff7d23; /* =415 */
+    --C_orange_fl:              #f39c12; /* =417 */
+    --C_orange:                 #FFA500; /* =420 */
+    --C_c3d_05:                 #ff931c; /* =430 */
+    --C_w8_a13:                 #ff981d; /* =436 */
+    --C_word_08:                #C19C7E; /* =475 */
+    --C_sandybrown:             #F4A460; /* =504 */
+    --C_tan:                    #D2B48C; /* =530 */
+    --C_burlywood:              #DEB887; /* =541 */
+    --C_light_orange:           #ffc65d; /* =546 */
+    --C_word_03:                #FAC1A7; /* =610 */
+    --C_navajowhite:            #FFDEAD; /* =650 */
+    --C_wheat:                  #F5DEB3; /* =646 */
+    --C_peachpuff:              #FFDAB9; /* =658 */
+    --C_moccasin:               #FFE4B5; /* =664 */
+    --C_bisque:                 #FFE4C4; /* =664 */
+    --C_blanchedalmond:         #FFEBCD; /* =695 */
+    --C_papayawhip:             #FFEFD5; /* =707 */
+    /*  yel ~ yellow - оттенки желтого */
+    --C_olive:                  #808000; /* =256 */
+    --C_darkgoldenrod:          #B8860B; /* =329 */
+    --C_word_06:                #AF9A1D; /* =358 */
+    --C_w8_b18:                 #d39d09; /* =377 */
+    --C_w8_a21:                 #e1b700; /* =408 */
+    --C_goldenrod:              #DAA520; /* =415 */
+    --C_w8_a01:                 #f4b300; /* =423 */
+    --C_sunflower_fl:           #f1c40f; /* =452 */
+    --C_gold:                   #FFD700; /* =470 */
+    --C_darkkhaki:              #BDB76B; /* =479 */
+    --C_yellow:                 #FFFF00; /* =510 */
+    --C_khaki:                  #F0E68C; /* =610 */
+    --C_palegoldenrod:          #EEE8AA; /* =640 */
+    --C_lightgoldenrodyellow:   #FAFAD2; /* =710 */
+    --C_lemonchiffon:           #FFFACD; /* =710 */
+    --C_lightyellow:            #FFFFE0; /* =734 */
+    /*  gre ~ green  - оттенки зеленого */
+    --C_w8_b09:                 #004a00; /* =074 */
+    --C_darkgreen:              #006400; /* =100 */
+    --C_green:                  #008000; /* =128 */
+    --C_w8_a11:                 #199900; /* =178 */
+    --C_forestgreen:            #228B22; /* =207 */
+    --C_w8_b10:                 #15992a; /* =216 */
+    --C_darkolivegreen:         #556B2F; /* =239 */
+    --C_lime:                   #00FF00; /* =255 */
+    --C_w8_a12:                 #00c13f; /* =256 */
+    --C_seagreen:               #2E8B57; /* =272 */
+    --C_olivedrab:              #6B8E23; /* =284 */
+    --C_arlekin:                #44944a; /* =290 */
+    --C_limegreen:              #32CD32; /* =305 */
+    --C_w8_a02:                 #78ba00; /* =306 */
+    --C_nephritis_fl:           #27ae60; /* =309 */
+    --C_crayola:                #16a085; /* =315 */ /* ~ */
+    --C_greensea_fl:            #16a085; /* =315 */ /* ~ */
+    --C_soft_green:             #55A55A; /* =340 */
+    --C_shiny:                  #47a76a; /* =344 */
+    --C_w8_b17:                 #83ba1f; /* =348 */
+    --C_mediumseagreen:         #3CB371; /* =352 */
+    --C_w8_a20:                 #91d100; /* =354 */
+    --C_emerald_fl:             #2ecc71; /* =363 */
+    --C_bright_lime_green:      #39DC5F; /* =372 */
+    --C_lawngreen:              #7CFC00; /* =376 */
+    --C_chartreuse:             #7FFF00; /* =382 */
+    --C_springgreen:            #00FF7F; /* =382 */
+    --C_mediumspringgreen:      #00FA9A; /* =404 */
+    --C_yellowgreen:            #9ACD32; /* =409 */
+    --C_darkseagreen:           #8FBC8F; /* =474 */
+    --C_greenyellow:            #ADFF2F; /* =475 */
+    --C_lightgreen:             #90EE90; /* =526 */
+    --C_palegreen:              #98FB98; /* =555 */
+    /*  cya ~ cyan - оттенки голубого\бирюзового */
+    --C_w8_b08:                 #004d60; /* =173 */
+    --C_teal:                   #008080; /* =256 */
+    --C_w8_a10:                 #008287; /* =265 */
+    --C_darkcyan:               #008B8B; /* =278 */
+    --C_w8_a23:                 #00a4a4; /* =328 */
+    --C_w8_b16:                 #00aaaa; /* =340 */
+    --C_turquoise_fl:           #1abc9c; /* =370 */
+    --C_lightseagreen:          #20B2AA; /* =380 */
+    --C_caribbean:              #1cd3a2; /* =401 */
+    --C_cadetblue:              #5F9EA0; /* =413 */
+    --C_darkturquoise:          #00CED1; /* =414 */
+    --C_w8_a19:                 #00d8cc; /* =420 */
+    --C_c3d_03:                 #33acca; /* =425 */
+    --C_mediumaquamarine:       #66CDAA; /* =477 */
+    --C_mediumturquoise:        #48D1CC; /* =485 */
+    --C_moderate_cyan:          #4dd4c4; /* =485 */
+    --C_turquoise:              #40E0D0; /* =496 */
+    --C_cyan:                   #00FFFF; /* =510 */ /* ~ */
+    --C_aqua:                   #00FFFF; /* =510 */ /* ~ */
+    --C_aquamarine:             #7FFFD4; /* =594 */
+    --C_word_02:                #A9CADE; /* =593 */
+    --C_paleturquoise:          #AFEEEE; /* =651 */
+    --C_lightcyan:              #E0FFFF; /* =734 */
+     /* blu ~ blue   - оттенки синего\голубого */
+    --C_w8_b07:                 #001e4e; /* =108 */
+    --C_navy:                   #000080; /* =128 */
+    --C_darkblue:               #00008B; /* =139 */
+    --C_midnightblue:           #191970; /* =162 */
+    --C_midnightblue_fl:        #2c3e50; /* =186 */
+    --C_mediumblue:             #0000CD; /* =205 */
+    --C_wetasfalt_fl:           #34495e; /* =219 */
+    --C_violetblue:             #354d73; /* =245 */
+    --C_blue:                   #0000FF; /* =255 */
+    --C_darkslateblue:          #483D8B; /* =272 */
+    --C_w8_a09:                 #006ac1; /* =299 */
+    --C_w8_b14:                 #1b58b8; /* =299 */
+    --C_jeans:                  #1560bd; /* =306 */
+    --C_belizehole_fl:          #2980b9; /* =354 */
+    --C_steelblue:              #4682B4; /* =382 */
+    --C_w8_a03:                 #2673ec; /* =389 */
+    --C_royalblue:              #4169E1; /* =395 */
+    --C_slateblue:              #6A5ACD; /* =401 */
+    --C_peterriver_fl:          #3498db; /* =423 */
+    --C_dodgerblue:             #1E90FF; /* =429 */
+    --C_soft_blue_1:            #4a90e2; /* =444 */
+    --C_w8_a17:                 #1faeff; /* =460 */
+    --C_mediumslateblue:        #7B68EE; /* =465 */
+    --C_w8_b15:                 #569ce3; /* =469 */
+    --C_cornflowerblue:         #6495ED; /* =486 */
+    --C_w8_a18:                 #56c5ff; /* =538 */
+    --C_other_01:               #9AC0E4; /* =574 */
+    --C_skyblue:                #87CEEB; /* =576 */
+    --C_lightskyblue:           #87CEFA; /* =591 */
+    --C_lightsteelblue:         #B0C4DE; /* =594 */
+    --C_deepskyblue:            #00BFFF; /* =446 */
+    --C_lightblue:              #ADD8E6; /* =619 */
+    --C_powderblue:             #B0E0E6; /* =630 */
+    --C_blue_frost:             #afdafc; /* =645 */
+    --C_whity_blue:             #d8e0fe; /* =694 */
+    --C_aliceblue:              #F0F8FF; /* =743 */
+    /*  pur ~ purple - оттенки пурпурного\фиолетового */
+    --C_w8_b05:                 #2d004e; /* =123 */
+    --C_w8_b06:                 #1f0068; /* =135 */
+    --C_indigo:                 #4B0082; /* =205 */
+    --C_purple:                 #800080; /* =256 */
+    --C_w8_a08:                 #4617b4; /* =273 */
+    --C_darkmagenta:            #8B008B; /* =278 */
+    --C_w8_a07:                 #7200ac; /* =286 */
+    --C_rebeccapurple:          #663399; /* =306 */
+    --C_darkviolet:             #9400D3; /* =359 */
+    --C_wisteria_fl:            #8e44ad; /* =383 */
+    --C_blueviolet:             #8A2BE2; /* =407 */
+    --C_darkorchid:             #9932CC; /* =407 */
+    --C_amethyst_fl:            #9b59b6; /* =426 */
+    --C_word_09:                #9E70AD; /* =443 */
+    --C_soft_violet_1:          #8d5aeb; /* =466 */
+    --C_mediumpurple:           #9370DB; /* =478 */
+    --C_mediumorchid:           #BA55D3; /* =482 */
+    --C_w8_a16:                 #aa40ff; /* =489 */
+    --C_fuchsia:                #FF00FF; /* =510 */ /* ~ */
+    --C_magenta:                #FF00FF; /* =510 */ /* ~ */
+    --C_violet:                 #EE82EE; /* =606 */
+    /*  pin ~ pink - оттенки розового */
+    --C_w8_b04:                 #4e0038; /* =134 */
+    --C_w8_b13:                 #b81b6c; /* =319 */
+    --C_word_05:                #AB0A9D; /* =338 */
+    --C_mediumvioletred:        #C71585; /* =353 */
+    --C_c_sueta:                #e3256b; /* =371 */
+    --C_w8_a15:                 #ff1d77; /* =403 */
+    --C_deeppink:               #FF1493; /* =422 */
+    --C_other_03:               #dd676d; /* =433 */
+    --C_palevioletred:          #DB7093; /* =478 */
+    --C_word_04:                #AE91A7; /* =486 */
+    --C_w8_b19:                 #e064b7; /* =507 */
+    --C_hotpink:                #FF69B4; /* =540 */
+    --C_orchid:                 #DA70D6; /* =544 */
+    --C_w8_a22:                 #ff76bc; /* =561 */
+    --C_word_07:                #C0A7ED; /* =596 */
+    --C_plum:                   #DDA0DD; /* =602 */
+    --C_thistle:                #D8BFD8; /* =623 */
+    --C_lightpink:              #FFB6C1; /* =630 */
+    --C_pink:                   #FFC0CB; /* =650 */
+    --C_mistyrose:              #FFE4E1; /* =708 */
+    /*  whi ~ white  - светлые оттенки серого\белого */
+    --C_gainsboro:              #DCDCDC; /* =660 */
+    --C_antiquewhite:           #FAEBD7; /* =700 */
+    --C_lavender:               #E6E6FA; /* =710 */
+    --C_beige:                  #F5F5DC; /* =710 */
+    --C_vk_04:                  #ECEDF1; /* =714 */
+    --C_vk_06:                  #EDEEF0; /* =715 */
+    --C_clouds_fl:              #ecf0f1; /* =717 */
+    --C_linen:                  #FAF0E6; /* =720 */
+    --C_cornsilk:               #FFF8DC; /* =723 */
+    --C_oldlace:                #FDF5E6; /* =728 */
+    --C_vk_05:                  #F3F4F6; /* =733 */
+    --C_honeydew:               #F0FFF0; /* =735 */
+    --C_whitesmoke:             #F5F5F5; /* =735 */
+    --C_seashell:               #FFF5EE; /* =738 */
+    --C_lavenderblush:          #FFF0F5; /* =740 */
+    --C_other_02:               #f8f8f8; /* =744 */
+    --C_floralwhite:            #FFFAF0; /* =745 */
+    --C_azure:                  #F0FFFF; /* =750 */
+    --C_mintcream:              #F5FFFA; /* =750 */
+    --C_ivory:                  #FFFFF0; /* =750 */
+    --C_ghostwhite:             #F8F8FF; /* =751 */
+    --C_snow:                   #FFFAFA; /* =755 */
+    --C_white:                  #FFFFFF; /* =765 */
+    /*  ext ~ extra - Особые */
+    --С_ext_black_20: rgba(0, 0, 0, 0.2);
+    --С_ext_black_50: rgba(0, 0, 0, 0.5);
+    --С_ext_white_10: rgba(255, 255, 255, 0.1);
+
+}
+/* РАСКРАСКА */
+/*  */
+    /* для фона*/
+    .Bg-body                   { background: var(--С_ext_black_20); } /* для тестирования */
+    .Bg-n                      { background: none; }
+    .Bg-black                  { background: var(--C_black); }
+    .Bg-white                  { background: var(--C_white); }
+    .Bg-almost_black           { background: var(--C_almost_black); }
+    .Bg-graphite               { background: var(--C_graphite); }
+    .Bg-graphite_low           { background: var(--C_graphite_low); }
+    .Bg-ghostwhite             { background: var(--C_ghostwhite); }
+    .Bg-carbon                 { background: var(--C_carbon); }
+    .Bg-c3d_02                 { background: var(--C_c3d_02); }
+    .Bg-whity_blue             { background: var(--C_whity_blue); }
+    .Bg-ext_black_50           { background: var(--С_ext_black_50); }
+
+    .Bg-black_h:hover          { background: var(--C_black); }
+    .Bg-white_h:hover          { background: var(--C_white); }
+    .Bg-almost_black_h:hover   { background: var(--C_almost_black); }
+    .Bg-graphite_h:hover       { background: var(--C_graphite); }
+    .Bg-graphite_low_h:hover   { background: var(--C_graphite_low); }
+    .Bg-ghostwhite_h:hover     { background: var(--C_ghostwhite); }
+    .Bg-carbon_h:hover         { background: var(--C_carbon); }
+    .Bg-c3d_02_h:hover         { background: var(--C_c3d_02); }
+    .Bg-whity_blue_h:hover     { background: var(--C_whity_blue); }
+
+    .Bg-c3d_01_a:active        { background: var(--C_c3d_01); }
+    .Bg-ext_black_50_a:active  { background: var(--С_ext_black_50); }
+
+    .Bg-c3d_02_f:focus         { background: var(--C_c3d_02); }
+/*  */
+    /* для текста*/
+    .Tc-inh                     { color: inherit; }
+    .Tc-n                       { color: none; }
+    .Tc-black                   { color: var(--C_black); }
+    .Tc-white                   { color: var(--C_white); }
+    .Tc-lavender                { color: var(--C_lavender); }
+    .Tc-ghostwhite              { color: var(--C_ghostwhite); }
+    .Tc-lightgray               { color: var(--C_light_gray); }
+    .Tc-clouds_fl               { color: var(--C_clouds_fl); }
+    .Tc-silver_fl               { color: var(--C_silver_fl); }
+    .Tc-pomegranate_fl          { color: var(--C_pomegranate_fl); }
+    .Tc-blue_frost              { color: var(--C_blue_frost); }
+    .Tc-aluminium               { color: var(--C_aluminium); }
+    .Tc-emerald_fl              { color: var(--C_emerald_fl); }
+
+    .Tc-black_h:hover           { color: var(--C_black); }
+    .Tc-white_h:hover           { color: var(--C_white); }
+    .Tc-lavender_h:hover        { color: var(--C_lavender); }
+    .Tc-ghostwhite_h:hover      { color: var(--C_ghostwhite); }
+    .Tc-lightgray_h:hover       { color: var(--C_light_gray); }
+    .Tc-clouds_fl_h:hover       { color: var(--C_clouds_fl); }
+    .Tc-silver_fl_h:hover       { color: var(--C_silver_fl); }
+    .Tc-pomegranate_fl_h:hover  { color: var(--C_pomegranate_fl); }
+    .Tc-blue_frost_h:hover      { color: var(--C_blue_frost); }
+    .Tc-aluminium_h:hover       { color: var(--C_aluminium); }
+    .Tc-emerald_fl_h:hover      { color: var(--C_emerald_fl); }
+/*  */
+    /* для рамок */
+    .Bordc-none                 { border-color: none; }
+    .Bordc-black                { border-color: var(--C_black); }
+    .Bordc-white                { border-color: var(--C_white); }
+    .Bordc-ghostwhite           { border-color: var(--C_ghostwhite); }
+
+    .Bordc-black_h:hover        { border-color: var(--C_black); }
+    .Bordc-white_h:hover        { border-color: var(--C_white); }
+    .Bordc-ghostwhite_h:hover   { border-color: var(--C_ghostwhite); }
+/*  */

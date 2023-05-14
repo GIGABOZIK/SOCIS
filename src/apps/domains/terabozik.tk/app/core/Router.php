@@ -21,10 +21,15 @@ class Router {
     }
 
     public function match() {
-        $url = trim($_SERVER['REQUEST_URI'], '/'); //? удаляет лишние '/' в начале и в конце строки
+        $url = parse_url($_SERVER['REQUEST_URI'])['path']; //` Убрать часть GET
+        // echo($url);
+        $url = trim($url, '/'); //? удаляет лишние '/' в начале и в конце строки
+        //
+        //
+        // $url = trim($_SERVER['REQUEST_URI'], '/'); //? удаляет лишние '/' в начале и в конце строки
         // echo parse_url($_SERVER['REQUEST_URI']);
         // printArray(parse_url($_SERVER['REQUEST_URI']));
-        $url = parse_url($url)['path']; //? Убрать часть GET
+        // $url = parse_url($url)['path']; //` Убрать часть GET
         foreach ($this->routes as $route => $routeParams) {
             // if (preg_match($route, $url)) {
             if (preg_match($route, $url, $matches)) {
