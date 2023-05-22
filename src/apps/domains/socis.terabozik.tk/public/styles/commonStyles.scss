@@ -1,0 +1,253 @@
+//# Base
+@use "sass:color";
+
+// $base-color-dark: #1c2635; //
+$base-color-light: #9abaff;
+$base-color: $base-color-light;
+
+
+$page-bg-color:     color.adjust($base-color, $lightness: 10%);
+
+$header-bg-color:   color.adjust($page-bg-color, $lightness: -10%, $alpha: -0.1, $hue: -5);
+$main-bg-color:     color.adjust($page-bg-color, $lightness: -1%);
+$footer-bg-color:   color.adjust($page-bg-color, $lightness: -20%, $hue: -3);
+
+//> sbar
+$sbar-width: 300px;
+
+//> header
+$header-height: 70px;
+$logo-height: 50px;
+
+$logo-color:            color.adjust($base-color, $lightness: -15%);
+$h-nav-color:           color.adjust($base-color, $lightness: -15%);
+$h-nav-color_current:   color.adjust($h-nav-color, $lightness: -8%);
+
+//> main-cont
+//>> account
+$acc-form-bg-color:             color.adjust($base-color, $lightness: 5%);
+$acc-form-label-color:          color.adjust($base-color, $lightness: -60%);
+$acc-form-input-bg-color:       color.adjust($base-color, $lightness: 12%);
+$acc-form-input-color:          color.adjust($base-color, $lightness: -55%);
+$acc-form-input-border-color:   color.adjust($base-color, $hue: 20);
+$acc-form-btn-bg-color:         #4caf50;
+$acc-form-btn-text-color:       color.adjust($base-color, $lightness: 15%, $hue: -10);
+
+//> footer
+
+
+
+
+//## Font
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+$ff-nice-0: Calibri, Arial;
+$ff-nice-1: 'Trebuchet MS', 'Candara', Calibri, Arial;
+$ff-nice-2: 'Verdana', 'Montserrat', 'Trebuchet MS', Arial;
+$ff-hand: 'Segoe Print', 'Segoe Script', 'Comic Sans MS';
+$ff-symb: 'Wingdings', 'Webdings', 'Marlett', 'Geotype TT';
+
+$base-font-family: $ff-nice-1;
+$base-text-size: 16px;
+$base-text-color: color.adjust($base-color, $lightness: -90%);
+
+@mixin font($family: $base-font-family, $size: $base-text-size, $weight: normal) {
+    font-family: $family;
+    font-size: $size;
+    font-weight: $weight;
+}
+
+
+//> Link
+@mixin link-skew-interact($color: $base-text-color) {
+    transition: all 100ms;
+    // transform: scale(1);
+    color: $color;
+    text-decoration: none;
+    &:hover {
+        // transform: scale(1.01);
+        color: color.adjust($color, $lightness: -5%);
+        // text-decoration: underline;
+    }
+    &:active {
+        transform: scale(0.99);
+        color: color.adjust($color, $lightness: -7%);
+    }
+}
+@mixin btn-skew-interact($bg-color) {
+    transition: all 100ms;
+    // transform: scale(1);
+    background-color: $bg-color;
+    text-decoration: none;
+    &:hover {
+        // transform: scale(1.01);
+        background-color: color.adjust($bg-color, $lightness: -5%);
+        // text-decoration: underline;
+    }
+    &:active {
+        transform: scale(0.99);
+        background-color: color.adjust($bg-color, $lightness: -8%, $hue: 10);
+    }
+}
+
+//> Shadow
+@mixin text-shadow($x-offset: 1px, $y-offset: 2px, $blur-radius: 3px, $color: $base-text-color) {
+    text-shadow: $x-offset $y-offset $blur-radius $color;
+}
+//` @mixin box-shadow() {}
+
+
+
+//# styling
+*, *:before, *:after {
+    /* Chrome 9-, Safari 5-, iOS 4.2-, Android 3-, Blackberry 7- */
+    -webkit-box-sizing: border-box; 
+    /* Firefox (desktop or Android) 28- */
+    -moz-box-sizing: border-box;
+    /* Firefox 29+, IE 8+, Chrome 10+, Safari 5.1+, Opera 9.5+, iOS 5+, Opera Mini Anything, Blackberry 10+, Android 4+ */
+    box-sizing: border-box;
+    ////
+}
+body {
+    margin: 0;
+    background-color: $page-bg-color;
+}
+
+.wrapper-1 {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 10px;
+}
+
+//## SIDEBAR (later)
+.page-sidebar {
+    position: fixed;
+    // display: none;
+    width: $sbar-width;
+    //
+    &:not(.active) {
+        display: none;
+    }
+}
+
+//## HEADER
+header {
+    position: sticky;
+    top: 0;
+    background-color: $header-bg-color;
+}
+.header-cont {
+    display: flex;
+    height: $header-height;
+    align-items: center;
+    justify-content: space-between;
+    .logo-link {
+        display: flex;
+        align-items: center;
+        img {
+            position: relative;
+            top: 2px;
+            height: $logo-height;
+            // transition: all 1500ms;
+            &:hover {
+                animation: rotation infinite linear 1s;
+                // transform: rotate(360deg);
+            }
+        }
+        text-decoration: none;
+        span {
+            margin-left: 15px;
+            @include font($size: 32px, $weight: 900);
+            @include link-skew-interact($logo-color);
+            @include text-shadow($color: $logo-color);
+        }
+    }
+    .navigation {
+        display: flex;
+        .h-nav-link {
+            margin-left: 15px;
+            @include font($size: 24px, $weight: 900);
+            @include link-skew-interact($h-nav-color);
+            &.current {
+                color: $h-nav-color_current;
+            }
+        }
+    }
+    // .account {
+    //     // 
+    // }
+}
+
+//## MAIN
+main {
+    background-color: $main-bg-color;
+}
+.main-cont {}
+
+//## FOOTER
+footer {
+    background-color: $footer-bg-color;
+}
+.footer-cont {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    section {
+        margin: 15px;
+        min-width: 350px;
+    }
+}
+
+
+//### ACCOUNT
+form.account {
+    max-width: 400px;
+    margin: 5px auto;
+    padding: 20px;
+    // background-color: #f2f2f2;
+    background-color: $acc-form-bg-color;
+    border-radius: 5px;
+    label {
+        display: block;
+        margin-bottom: 5px;
+        // font-weight: bold;
+        @include font($weight: bold);
+        color: $acc-form-label-color;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid $acc-form-input-border-color;
+        border-radius: 5px;
+        background-color: $acc-form-input-bg-color;
+    }
+    button[type="submit"] {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        @include btn-skew-interact($bg-color: $acc-form-btn-bg-color);
+        @include font($family: $ff-nice-0);
+        color: $acc-form-btn-text-color;
+    }
+    p {
+        text-align: center;
+        a {
+            color: #0066cc;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+//# animation
+@keyframes rotation {
+    0% { transform: rotate(0); }
+    to { transform: rotate(360deg); }
+}
