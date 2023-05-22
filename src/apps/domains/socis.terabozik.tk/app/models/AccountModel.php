@@ -71,7 +71,10 @@ class AccountModel extends Model {
             return ['status' => 'Error', 'message' => 'Неверные данные!'];
         //` OK - user exist
 
-        if ($response['password'] != $var['password'])
+        if (
+            $response['password'] != $var['password']
+            //-!password_verify($var['password'], $response['password'])
+        )
             return ['status' => 'Error', 'message' => 'Неверные данные!'];
         //` OK - validate password
 
@@ -85,9 +88,11 @@ class AccountModel extends Model {
             and strlen($login) < 50
         );
     }
+
     public function validateEmail($email) {
         return filter_var($email, FILTER_VALIDATE_EMAIL);
     }
+
     public function validatePassword($password) {
         return (
             strlen($password) > 1
@@ -96,7 +101,9 @@ class AccountModel extends Model {
     }
 
     private function hashPassword($password) {
-        return 'hashMe' . $password;
+        $hash = hash('sha256', $password);
+        // $hash = password_hash($password, );
+        return $hash;
     }
 
 

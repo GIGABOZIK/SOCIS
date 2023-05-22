@@ -1,0 +1,13 @@
+//: FOOTER
+footer {
+    background-color: $footer-bg-color;
+}
+.footer-cont {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    section {
+        margin: 15px;
+        min-width: 350px;
+    }
+}

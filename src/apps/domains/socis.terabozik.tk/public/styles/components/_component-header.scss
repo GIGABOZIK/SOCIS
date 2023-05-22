@@ -1,0 +1,47 @@
+//: HEADER
+header {
+    position: sticky;
+    top: 0;
+    background-color: $header-bg-color;
+}
+.header-cont {
+    display: flex;
+    height: $header-height;
+    align-items: center;
+    justify-content: space-between;
+    .logo-link {
+        display: flex;
+        align-items: center;
+        img {
+            position: relative;
+            top: 2px;
+            height: $logo-height;
+            // transition: all 1500ms;
+            &:hover {
+                animation: rotation infinite linear 1s;
+                // transform: rotate(360deg);
+            }
+        }
+        text-decoration: none;
+        span {
+            margin-left: 15px;
+            @include font($size: 32px, $weight: 900);
+            @include link-skew-interact($logo-color);
+            @include text-shadow($color: $logo-color);
+        }
+    }
+    .navigation {
+        display: flex;
+        .h-nav-link {
+            margin-left: 15px;
+            @include font($size: 24px, $weight: 900);
+            @include link-skew-interact($h-nav-color);
+            &.current {
+                color: $h-nav-color_current;
+            }
+        }
+    }
+    // .account {
+    //     // 
+    // }
+}

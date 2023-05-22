@@ -1,59 +1,110 @@
-FAQ
 <?php
 
-require_once 'app/lib/widget-banners.php';
-generateSlider();
+
+function generateBanner() {
+    //
+}
+
+
+function generateSlider(
+    $images = [
+        'https://images.unsplash.com/photo-1542451542907-6cf80ff362d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1521&q=80',
+        'https://images.unsplash.com/photo-1542397284385-6010376c5337?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80',
+        'https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+    ],
+    $showControls = true
+    ) {
+    $slider = '<section class="slider"';
+    $slider .= '<div class="slides">';
+    foreach ($images as $image) {
+        $output .= '<img src="' . $image . '" alt="Slider Image">';
+
+    }
+    //
+    $slider .= '</div>';
+    // 
+    // 
+    // 
+    $addVersion = '?v=' . time();
+    $output .= '<style rel="stylesheet" href="/public/styles/widget-slider.css'. $addVersion . '"></style>';
+    return $output;
+}
+
+function generateSlider2($images, $showControls = true) {
+    $output = '<div class="slider">';
+    $output .= '<div class="slides">';
+    
+    foreach ($images as $image) {
+        $output .= '<img src="' . $image . '" alt="Slider Image">';
+    }
+    
+    $output .= '</div>';
+
+    // Добавляем элементы управления, если параметр $showControls равен true
+    if ($showControls) {
+        $output .= '<div class="controls">';
+        $output .= '<button class="prev">Предыдущий</button>';
+        $output .= '<button class="next">Следующий</button>';
+        $output .= '</div>';
+    }
+
+    $output .= '</div>';
+
+    $addVersion = '?v=' . time();
+    $output .= '<style rel="stylesheet" href="/public/styles/widget-slider.css'. $addVersion . '"></style>';
+    return $output;
+}
 
 
 ?>
 
-<!--
+
+
 <style>
-.slider {
-    position: relative;
-    width: 100%;
-    height: 400px; /* Укажите высоту слайдера */
-    overflow: hidden;
-}
+    .slider {
+        position: relative;
+        width: 100%;
+        height: 400px; /* Укажите высоту слайдера */
+        overflow: hidden;
+    }
 
-.slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
+    .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    }
 
-.slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+    .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
-.slide.active {
-    opacity: 1;
-}
+    .slide.active {
+        opacity: 1;
+    }
 
-.caption {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    color: #fff;
-}
+    .caption {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        color: #fff;
+    }
 
-.caption h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0;
-}
+    .caption h2 {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 0;
+    }
 
-.caption p {
-    font-size: 16px;
-    margin: 10px 0 0;
-}
-
+    .caption p {
+        font-size: 16px;
+        margin: 10px 0 0;
+    }
 </style>
 
 <div class="slider">
@@ -79,6 +130,7 @@ generateSlider();
         </div>
     </div>
 </div>
+<!-- Добавьте следующий код в HTML для кнопок "Следующий слайд" и "Предыдущий слайд" -->
 <button id="prevBtn">Предыдущий слайд</button>
 <button id="nextBtn">Следующий слайд</button>
 
@@ -131,7 +183,3 @@ document.getElementById('prevBtn').addEventListener('click', function() {
     showSlide(currentSlide);
 });
 </script>
-
-
-
--->

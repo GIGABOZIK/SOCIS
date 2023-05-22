@@ -15,14 +15,15 @@
     <?php $addVersion = '?v=' . time(); ?>
     <link rel="stylesheet" href="/public/styles/commonStyles.css<?php echo $addVersion; ?>">
     <!-- <link rel="stylesheet" href="/public/styles/<?php echo $this->routeParams['controller'] . '.css' . $addVersion; ?>"> -->
-    <link rel="stylesheet" href="/public/styles/debug.css<?php echo $addVersion; ?>">
+
     <script src="/public/scripts/jquery-3.6.3.min.js"></script>
     <script src="/public/scripts/form.js"></script>
 </head>
 <body>
 
-    <?php if (1)
+    <?php if (0)
     { ?>
+            <link rel="stylesheet" href="/public/styles/debug.css<?php echo $addVersion; ?>">
             <float style="position:fixed; right:0; bottom:0; padding: 5px">
                 <p><?php printArray($_SESSION['user'], 'DEBUG -> USER'); ?></p>
                 <!-- <p><?php printArray($_SESSION); ?></p> -->
@@ -54,11 +55,11 @@
                     // var_dump($this->routeParams);
                     $h_nav_links = [
                         'main'      => ['/',                'Главная'],
-                        'account'   => ['/account',         'Личный кабинет'],
-                        // 'orders'    => ['/account/orders',  'Заказы'],
                         'services'  => ['/services',        'Услуги'],
                         'faq'       => ['/faq',             'FAQ'],
                         'contacts'  => ['/contacts',        'Контакты'],
+                        'account'   => ['/account',         'Личный кабинет'],
+                        // 'orders'    => ['/account/orders',  'Заказы'],
                         
                     ];
                     if ($_SESSION['user']['id'] > 0) array_push($h_nav_links, ['/?logout=1', 'Выйти']);
@@ -122,6 +123,7 @@
                 </section>
             </div>
         </div>
+        <!-- <p class="a-center">Все права защищены &copy; 2023</p> -->
     </footer>
 
     <!-- <h1>app - views - layouts - default</h1><br>

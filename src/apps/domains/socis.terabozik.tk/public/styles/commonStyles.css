@@ -1,22 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
-*, *:before, *:after {
-  /* Chrome 9-, Safari 5-, iOS 4.2-, Android 3-, Blackberry 7- */
-  /* Firefox (desktop or Android) 28- */
-  /* Firefox 29+, IE 8+, Chrome 10+, Safari 5.1+, Opera 9.5+, iOS 5+, Opera Mini Anything, Blackberry 10+, Android 4+ */
-  box-sizing: border-box;
+@keyframes rotation {
+  0% {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
-
-body {
-  margin: 0;
-  background-color: #cdddff;
-}
-
-.wrapper-1 {
-  margin: 0 auto;
-  max-width: 1200px;
-  padding: 0 10px;
-}
-
 .page-sidebar {
   position: fixed;
   width: 300px;
@@ -90,10 +80,6 @@ header {
   color: #256aff;
 }
 
-main {
-  background-color: #c8d9ff;
-}
-
 footer {
   background-color: #679fff;
 }
@@ -106,6 +92,10 @@ footer {
 .footer-cont section {
   margin: 15px;
   min-width: 350px;
+}
+
+main {
+  background-color: #c8d9ff;
 }
 
 form.account {
@@ -166,11 +156,20 @@ form.account p a:hover {
   text-decoration: underline;
 }
 
-@keyframes rotation {
-  0% {
-    transform: rotate(0);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+*, *:before, *:after {
+  /* Chrome 9-, Safari 5-, iOS 4.2-, Android 3-, Blackberry 7- */
+  /* Firefox (desktop or Android) 28- */
+  /* Firefox 29+, IE 8+, Chrome 10+, Safari 5.1+, Opera 9.5+, iOS 5+, Opera Mini Anything, Blackberry 10+, Android 4+ */
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #cdddff;
+}
+
+.wrapper-1 {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 10px;
 }/*# sourceMappingURL=commonStyles.css.map */

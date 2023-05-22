@@ -1,0 +1,10 @@
+//: SIDEBAR (later)
+.page-sidebar {
+    position: fixed;
+    // display: none;
+    width: $sbar-width;
+    //
+    &:not(.active) {
+        display: none;
+    }
+}

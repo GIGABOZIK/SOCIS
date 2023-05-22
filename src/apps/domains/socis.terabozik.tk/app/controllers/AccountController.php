@@ -15,9 +15,8 @@ class AccountController extends Controller {
     public function indexAction() {
         switch ($_SESSION['user']['role_name']) {
             case 'guest':
-                // $this->view->redirect('/account/login');
-                // $this->view->redirect('/account/login');
-                $this->view->redirect('/account/signup');
+                $this->view->redirect('/account/login');
+                // $this->view->redirect('/account/signup');
             break;
             default:
                 $this->view->redirect('/account/profile');

@@ -1,0 +1,46 @@
+//: MIXINS
+
+//> Fonts
+@mixin font($family: $base-font-family, $size: $base-text-size, $weight: normal) {
+    font-family: $family;
+    font-size: $size;
+    font-weight: $weight;
+}
+
+//> Link
+@mixin link-skew-interact($color: $base-text-color) {
+    transition: all 100ms;
+    // transform: scale(1);
+    color: $color;
+    text-decoration: none;
+    &:hover {
+        // transform: scale(1.01);
+        color: color.adjust($color, $lightness: -5%);
+        // text-decoration: underline;
+    }
+    &:active {
+        transform: scale(0.99);
+        color: color.adjust($color, $lightness: -7%);
+    }
+}
+@mixin btn-skew-interact($bg-color) {
+    transition: all 100ms;
+    // transform: scale(1);
+    background-color: $bg-color;
+    text-decoration: none;
+    &:hover {
+        // transform: scale(1.01);
+        background-color: color.adjust($bg-color, $lightness: -5%);
+        // text-decoration: underline;
+    }
+    &:active {
+        transform: scale(0.99);
+        background-color: color.adjust($bg-color, $lightness: -8%, $hue: 10);
+    }
+}
+
+//> Shadow
+@mixin text-shadow($x-offset: 1px, $y-offset: 2px, $blur-radius: 3px, $color: $base-text-color) {
+    text-shadow: $x-offset $y-offset $blur-radius $color;
+}
+//` @mixin box-shadow() {}

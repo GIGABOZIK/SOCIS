@@ -101,44 +101,45 @@ services:
     #     ports:
     #         - "10000:10000"
 # ### 
-# ## fs-samba
-    # samba:
-    #     container_name: fs-samba
-    #     # image: dperson/samba
-    #     image: ubuntu:latest
-    #     # image: alpine:latest
-    #     # restart: unless-stopped
-    #     restart: always
-    #     volumes:
-    #         # SAMBA-START-SCRIPT
-    #         - ./build/other/samba-start.sh:/samba-start.sh:ro
-    #         # SAMBA-CFG
-    #         # - ./running/etc/samba/smb_1_d.conf:/etc/samba/smb.conf:ro #:ro
-    #         # - ./running/etc/samba/smb_2_u.conf:/etc/samba/smb.conf:ro #:ro
-    #         - ./running/etc/samba/smb_2_u.conf:/t_smb.conf #:ro
-    #         # SAMBA-SHARED
-    #         # - ./apps/samba-shared:/srv/samba #:z | :ro
-    #         - ./apps/samba-shared:/home/john/shared #:z | :ro
-    #     tmpfs:
-    #         - /tmp
-    #     # environment:
-    #     #     - USERID=1000
-    #     #     - GROUPID=1000
-    #     #     - USERNAME=username
-    #     #     - PASSWORD=password
-    #     command: ["sh", "/samba-start.sh"]
-    #     # tty: true
-    #     # stdin_open: true
-    #     networks:
-    #         - default
-    #     ports:
-    #         # - "137:137/udp" # required to advertise shares (NMBD)
-    #         # - "138:138/udp" # required to advertise shares (NMBD)
-    #         # - "139:139/tcp" # default smb port
-    #         # # - "445:445/tcp" # default smb port
-    #         # - "8004:445"
-    #         - "137:137"
-    #         - "138:138"
-    #         - "139:139"
-    #         - "8004:445"
+# ## fs-samba `sudo docker exec -it fs-samba bash
+#     samba:
+#         container_name: fs-samba
+#         # image: dperson/samba
+#         image: ubuntu:latest
+#         # image: alpine:latest
+#         restart: unless-stopped
+#         # restart: always
+#         volumes:
+#             # SAMBA-START-SCRIPT
+#             - ./build/other/samba-start.sh:/samba-start.sh:ro
+#             # SAMBA-CFG
+#             # - ./running/etc/samba/smb_1_d.conf:/etc/samba/smb.conf:ro #:ro
+#             # - ./running/etc/samba/smb_2_u.conf:/etc/samba/smb.conf:ro #:ro
+#             - ./running/etc/samba/smb_2_u.conf:/t_smb.conf #:ro
+#             # SAMBA-SHARED
+#             # - ./apps/samba-shared:/srv/samba #:z | :ro
+#             # - ./apps/samba-shared:/home/john/shared #:z | :ro
+#             - ./apps/samba-shared/share:/samba #:z | :ro
+#         tmpfs:
+#             - /tmp
+#         # environment:
+#         #     - USERID=1000
+#         #     - GROUPID=1000
+#         #     - USERNAME=username
+#         #     - PASSWORD=password
+#         command: ["sh", "/samba-start.sh"]
+#         # tty: true
+#         # stdin_open: true
+#         networks:
+#             - default
+#         ports:
+#             # - "137:137/udp" # required to advertise shares (NMBD)
+#             # - "138:138/udp" # required to advertise shares (NMBD)
+#             # - "139:139/tcp" # default smb port
+#             # # - "445:445/tcp" # default smb port
+#             # - "8004:445"
+#             - "137:137"
+#             - "138:138"
+#             - "139:139"
+#             - "445:445"
 # ### 
