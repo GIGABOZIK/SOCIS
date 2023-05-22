@@ -11,9 +11,11 @@ return [
     'guest' => [
         'signup',
         'login',
+        'restore',
     ],
     'admin' => [
-        //
+        'profile',
+        'admin',
     ],
 ];
 

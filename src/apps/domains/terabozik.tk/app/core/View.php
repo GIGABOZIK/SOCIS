@@ -14,13 +14,14 @@ class View {
         // debug($this->viewPath);
     }
 
-    public function render($title, $vars = []) {
+    public function render($titlePage = "titlePage", $titleBrand = "titleBrand", $vars = []) {
         extract($vars); //? Выносит элементы массива в отдельные переменные с именем ключа
         $viewFilePath = 'app/views/' . $this->viewPath . '.php';
         if (file_exists($viewFilePath)) {
             //? Сборка буфера вывода контента (типа prepare)
             ob_start();
             require $viewFilePath;
+            // include $viewFilePath;
             $content = ob_get_clean(); //& Здесь можно наверн заменить на мою систему генерации страницы
             //? Конец буферизации
             require 'app/views/layouts/' . $this->layout . '.php'; //? Вывод выбранного шаблона
@@ -36,12 +37,11 @@ class View {
 
     public static function errorCode($code) {
         http_response_code($code);
-        //& ПОТОМ ПОМЕНЯТЬ СИСТЕМУ ТУТ (Обрабатывать с помощью htaccess)
         $errorViewFilePath = 'app/views/errors/' . $code . '.php';
         if (file_exists($errorViewFilePath)) {
             require $errorViewFilePath;
         }
-        // exit; //!
+        exit; //!
     }
 
     //& Для ajax js

@@ -7,32 +7,48 @@ use app\core\Controller;
 
 class AccountController extends Controller {
 
-    // public function before() {
-    //     $this->view->layout = 'custom';
-    // }
-
-    public function indexAction() {
-        //
-        // echo 'accountIndex';
-        $this->view->render('Аккаунт');
+    public function adminAction() {
+        $_SESSION['user']['id'] = 1;
+        // printArray($_SESSION['user']); exit;
     }
 
-    public function loginAction() {
-        // echo 'LOGIN';
-        // $this->view->redirect('https://google.com');
-
-        if (!empty($_POST)) {
-            $this->view->message('success))', '123123123123');
-            // $this->view->location('/account/signup');
+    public function indexAction() {
+        switch ($_SESSION['user']['role_name']) {
+            case 'guest':
+                // $this->view->redirect('/account/login');
+                // $this->view->redirect('/account/login');
+                $this->view->redirect('/account/signup');
+            break;
+            default:
+                $this->view->redirect('/account/profile');
         }
-
-        $this->view->render('Вход');
     }
 
     public function signupAction() {
-        // echo 'SIGNUP';
+        if (!empty($_POST)) {
+            $response = $this->model->userSignUp($_POST);
+            if ($response['status'] == 'Success') {
+                $this->view->location('/account?auth=1');
+            } else $this->view->message($response['status'], $response['message']);
+        }
         $this->view->render('Регистрация');
     }
+
+    public function loginAction() {
+        if (!empty($_POST)) {
+            $response = $this->model->userSignIn($_POST);
+            if ($response['status'] == 'Success') {
+                $this->view->location('/account?auth=1');
+                // $this->view->message('Отлично!', 'Авторизован');
+            } else $this->view->message($response['status'], $response['message']);
+        }
+        $this->view->render('Авторизация');
+    }
+
+    public function profileAction() {
+        $this->view->render('Профиль');
+    }
+
 }
 
 ?>

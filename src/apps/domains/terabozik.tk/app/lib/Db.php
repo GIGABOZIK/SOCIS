@@ -7,31 +7,38 @@ use PDO;
 
 class Db {
 
-    protected $dbLink;
+    protected $pdo;
 
     public function __construct() {
         $config = require 'app/config/db.php';
-        $this->dbLink = new PDO('mysql:'
-            . 'host=' . $config['host']
-            . ';dbname=' . $config['dbname'],
-            $config['user'],
-            $config['password']
-        );
-        // debug($this->db);
+        // try {
+            $this->pdo = new PDO('mysql:'
+                . 'host=' . $config['host']
+                . ';dbname=' . $config['dbname'],
+                $config['user'],
+                $config['password']
+            );
+            // $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        // } catch(PDOException $e) {
+        //     echo 'Error: ' . $e->getMessage();
+        // }
     }
 
-    //` Выполнение запроса
+    //` Выполнение SQL-запроса
     public function query($sql, $params = []) {
-        $stmt = $this->dbLink->prepare($sql);
-        if (!empty($params)) {
-            foreach ($params as $key => $value) {
-                $stmt->bindValue(':' . $key, $value);
+        // try {
+            $stmt = $this->pdo->prepare($sql);
+            if (!empty($params)) {
+                foreach ($params as $key => $value) {
+                    $stmt->bindValue(':' . $key, $value);
+                }
             }
-        }
-        $stmt->execute();
+            $stmt->execute();
+        // } catch(PDOException $e) {
+        //     echo 'Error: ' . $e->getMessage();
+        //     return null;
+        // }
         return $stmt;
-        // $query = $this->dbLink->query($sql);
-        // return $query;
     }
 
     //` Получение кортежей
@@ -46,12 +53,12 @@ class Db {
         return $result->fetchColumn();
     }
 
-    //> Примеры:
-    //: query('SET NAMES utf8')
-    //: row('SELECT id, title, description FROM news;')
-    //: column('SELECT name FROM users WHERE id = :id OR name = :name;', ['id' => 2, 'name' => 'John'])
-    //
-    //
+    /*
+    & Примеры использования:
+    : query('SET NAMES utf8')
+    : row('SELECT `id`, `title`, `description` FROM `news`;')
+    : column('SELECT `name` FROM `users` WHERE `id` = :id OR `name` = :name;', ['id' => 2, 'name' => 'John'])
+    */
 
 }
 

@@ -5,8 +5,9 @@ return [
     'all' => [
         'index',
 		// 'about',
-        'services',
         'contacts',
+        'faq',
+        'services',
     ],
     'authorized' => [
         //

@@ -52,9 +52,9 @@ class Router {
                     $ctrl->$paramAction(); //? Выполнение выбранного метода
         //!
                     return;
-                } else echo 'Не задано поведение!';
-            } else echo 'Некорректный обработчик!';
-        } else echo 'Неверный маршрут!';
+                } else echo 'wrong action';
+            } else echo 'wrong controller';
+        } else echo 'wrong route';
         View::errorCode(404);
         //!
                 // } else View::errorCode(404);

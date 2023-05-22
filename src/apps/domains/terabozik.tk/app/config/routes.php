@@ -1,5 +1,7 @@
 <?php
 
+//TODO - Это необходимо автоматизировать в будущем
+
 /*
 # Для каждого маршрута необходимо создать:
 > Запись самого маршрута в этом файле (указать controller и action)
@@ -36,6 +38,11 @@ return [
     'contacts' => [
         'controller' => 'main',
         'action' => 'contacts',
+    ],
+    //### FAQ
+    'faq' => [
+        'controller' => 'main',
+        'action' => 'faq',
     ],
     //### Услуги
     'services' => [
@@ -76,24 +83,45 @@ return [
 
 
     //# REST API - переложить на поддомен
-    'api' => [
-        'controller' => 'api',
-        'action' => 'index',
-    ],
+    /**
+     *  Переделать для работы с поддоменами в пределах фреймворка
+     *  return [
+     *      '' => [
+     *          '' => [
+     *              'controller' => 'main',
+     *              'action' => 'index',
+     *          ],
+     *          'account/login' => [
+     *              'controller' => 'accout',
+     *              'action' => 'login',
+     *          ],
+     *      ],
+     *      'api' => [
+     *          '' => [
+     *              'controller' => 'api',
+     *              'action' => 'index',
+     *          ],
+     *      ],
+     *  ]
+     */
+    // 'api' => [
+    //     'controller' => 'api',
+    //     'action' => 'index',
+    // ],
 
-    //# Утилитки
-    'utilities' => [
-        'controller' => 'utilities',
-        'action' => 'index',
-    ],
+    // //# Утилитки
+    // 'utilities' => [
+    //     'controller' => 'utilities',
+    //     'action' => 'index',
+    // ],
 
-    //## Страница быстрого запуска
-    'utilities/quickbar' => [
-        'controller' => 'utilities',
-        'action' => 'quickbar',
-    ],
-    //## 
-    //% + Можно алиасы делать.. но не надо..
+    // //## Страница быстрого запуска
+    // 'utilities/quickbar' => [
+    //     'controller' => 'utilities',
+    //     'action' => 'quickbar',
+    // ],
+    // //## 
+    // //% + Можно алиасы делать.. но не надо..
 ];
 
 ?>
