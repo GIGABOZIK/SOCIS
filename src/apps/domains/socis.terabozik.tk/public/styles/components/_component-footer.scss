@@ -1,6 +1,10 @@
+//: BUILD-IN
+@use "sass:color";
+
 //: FOOTER
 footer {
-    background-color: $footer-bg-color;
+    // background-color: $footer-bg-color;
+    background: linear-gradient(to bottom, $footer-bg-color 0%, color.adjust($base-color, $hue: 10deg) 100%);
 }
 .footer-cont {
     display: flex;

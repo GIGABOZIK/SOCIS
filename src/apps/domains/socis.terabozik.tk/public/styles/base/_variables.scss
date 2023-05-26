@@ -1,29 +1,62 @@
+//: BUILD-IN
 @use "sass:color";
 
+//: 
 // $base-color-dark: #1c2635; //
 $base-color-light: #9abaff;
 $base-color: $base-color-light;
 
+//: FONTS
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+$ff-nice-0: Calibri, Arial;
+$ff-nice-1: 'Trebuchet MS', 'Candara', Calibri, Arial;
+$ff-nice-2: 'Verdana', 'Montserrat', 'Trebuchet MS', Arial;
+$ff-hand: 'Segoe Print', 'Segoe Script', 'Comic Sans MS';
+$ff-symb: 'Wingdings', 'Webdings', 'Marlett', 'Geotype TT';
 
+//@ https://snipp.ru/html-css/standart-font-css
+
+$base-font-family: $ff-nice-1;
+$base-text-size: 16px;
+$base-text-color: color.adjust($base-color, $lightness: -90%);
+
+
+//: COMPONENTS
 $page-bg-color:     color.adjust($base-color, $lightness: 10%);
 
-$header-bg-color:   color.adjust($page-bg-color, $lightness: -10%, $alpha: -0.1, $hue: -5);
-$main-bg-color:     color.adjust($page-bg-color, $lightness: -1%);
-$footer-bg-color:   color.adjust($page-bg-color, $lightness: -20%, $hue: -3);
+//> scrollbar
+$scrollbar-wh: 3px;
+$scrollbar-track-bg-color:      color.adjust($base-color, $lightness: -5%);
+$scrollbar-thumb-bg-color:      color.adjust($base-color, $lightness: -20%);
+$scrollbar-thumb-bg-color_h:    color.adjust($base-color, $lightness: -25%);
+$scrollbar-thumb-bg-color_a:    color.adjust($base-color, $lightness: -30%);
+$scrollbar-corner-bg-color:     color.adjust($base-color, $lightness: -20%);
 
-
-
-//> sbar
+//> sidebar
 $sbar-width: 300px;
 
 //> header
+$header-bg-color:   color.adjust($page-bg-color, $lightness: -10%, $alpha: -0.1, $hue: -5);
 $header-height: 70px;
+//>> logo
 $logo-height: 50px;
-
 $logo-color:            color.adjust($base-color, $lightness: -15%);
+//>> nav
 $h-nav-color:           color.adjust($base-color, $lightness: -15%);
 $h-nav-color_current:   color.adjust($h-nav-color, $lightness: -8%);
 
+//> main-cont (common)
+$main-bg-color:     color.adjust($page-bg-color, $lightness: -1%);
+
+//> footer
+$footer-bg-color:   color.adjust($page-bg-color, $lightness: -20%, $hue: -3);
+
+
+//: WIDGETS
+$widget-banner: 1;
+
+
+//: PAGES
 //> main-cont
 //>> account
 $acc-form-bg-color:             color.adjust($base-color, $lightness: 5%);
@@ -34,22 +67,7 @@ $acc-form-input-border-color:   color.adjust($base-color, $hue: 20);
 $acc-form-btn-bg-color:         #4caf50;
 $acc-form-btn-text-color:       color.adjust($base-color, $lightness: 15%, $hue: -10);
 
-//> footer
 
 
 
 
-
-
-
-//## Font
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-$ff-nice-0: Calibri, Arial;
-$ff-nice-1: 'Trebuchet MS', 'Candara', Calibri, Arial;
-$ff-nice-2: 'Verdana', 'Montserrat', 'Trebuchet MS', Arial;
-$ff-hand: 'Segoe Print', 'Segoe Script', 'Comic Sans MS';
-$ff-symb: 'Wingdings', 'Webdings', 'Marlett', 'Geotype TT';
-
-$base-font-family: $ff-nice-1;
-$base-text-size: 16px;
-$base-text-color: color.adjust($base-color, $lightness: -90%);

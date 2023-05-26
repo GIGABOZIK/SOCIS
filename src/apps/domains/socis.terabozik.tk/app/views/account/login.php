@@ -1,4 +1,3 @@
-<!-- <h3>АВТОРИЗАЦИЯ (app - views - account - login)</h3> -->
 
 <form class="account" action="/account/login" method="POST">
     <label for="login" title="Введите ваш логин">Логин:</label>

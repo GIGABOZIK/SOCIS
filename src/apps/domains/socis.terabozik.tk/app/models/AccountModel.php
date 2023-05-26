@@ -66,7 +66,7 @@ class AccountModel extends Model {
         $var['password'] = $this->hashPassword(
             trim($var['password'])
         );
-        $response = $this->getUserBy(['login' => $var['login']]);
+        $response = $this->getUserBy(['login' => $var['login']]); //` Можно добавить вход по Email
         if (empty($response))
             return ['status' => 'Error', 'message' => 'Неверные данные!'];
         //` OK - user exist
@@ -84,8 +84,8 @@ class AccountModel extends Model {
 
     public function validateLogin($login) {
         return (
-            strlen($login) > 1
-            and strlen($login) < 50
+            strlen($login) >= 4
+            and strlen($login) <= 32
         );
     }
 
@@ -95,8 +95,8 @@ class AccountModel extends Model {
 
     public function validatePassword($password) {
         return (
-            strlen($password) > 1
-            and strlen($password) < 50
+            strlen($password) >= 1
+            and strlen($password) <= 32
         );
     }
 

@@ -9,13 +9,20 @@
 	<!-- <meta name="author" content=""> -->
 	<!-- <meta name="copyright" content=""> -->
 	<!-- <meta name="keywords" content=""> -->
+
+    <!-- TITLE -->
+    <?php
+        $titleBrand = 'SOCIS';
+    ?>
 	<link rel="icon" type="image/x-icon" href="./favicon.ico">
     <title><?php echo $titlePage . " · " . $titleBrand; ?></title>
-    <!-- style -->
+
+    <!-- STYLES -->
     <?php $addVersion = '?v=' . time(); ?>
     <link rel="stylesheet" href="/public/styles/commonStyles.css<?php echo $addVersion; ?>">
     <!-- <link rel="stylesheet" href="/public/styles/<?php echo $this->routeParams['controller'] . '.css' . $addVersion; ?>"> -->
 
+    <!-- SCRIPTS -->
     <script src="/public/scripts/jquery-3.6.3.min.js"></script>
     <script src="/public/scripts/form.js"></script>
 </head>
@@ -31,6 +38,14 @@
                 <p><a href="?user=1">user1</a></p>
                 <p><a href="?user=2">user2</a></p> -->
             </float>
+            <script>
+                let actPageAutoReload = 0;
+                let pageAutoReloadTimeSec = 5;
+                // let pageAutoReloadTimeSec = 1;
+                if (actPageAutoReload) {
+                    setTimeout(function() { location.reload() }, 1000 * pageAutoReloadTimeSec);
+                }
+            </script>
         <?php
     } ?>
 
@@ -55,17 +70,20 @@
                     // var_dump($this->routeParams);
                     $h_nav_links = [
                         'main'      => ['/',                'Главная'],
-                        'services'  => ['/services',        'Услуги'],
+                        // 'services'  => ['/services',        'Услуги'],
                         'faq'       => ['/faq',             'FAQ'],
-                        'contacts'  => ['/contacts',        'Контакты'],
+                        // 'contacts'  => ['/contacts',        'Контакты'],
                         'account'   => ['/account',         'Личный кабинет'],
                         // 'orders'    => ['/account/orders',  'Заказы'],
                         
                     ];
                     if ($_SESSION['user']['id'] > 0) array_push($h_nav_links, ['/?logout=1', 'Выйти']);
-                    foreach ($h_nav_links as $controller => $array) {
+                    foreach ($h_nav_links as $page => $array) {
                         $out = '<a class="h-nav-link';
-                        if ($this->routeParams['controller'] == $controller) {
+                        if (
+                            $this->routeParams['controller'] == $page
+                            // or $this->routeParams['action'] == $page
+                        ) {
                             $out .= ' current';
                         }
                         $out .= '" href="' . $array[0] . '">' . $array[1] . '</a>';
@@ -93,7 +111,8 @@
         </div>
     </main>
 
-    <footer>footer
+    <footer>
+        <!-- footer -->
         <div class="wrapper-1">
             <div class="footer-cont">
                 <section>
@@ -132,14 +151,6 @@
     <!-- <div style="width: env(safe-area-inset-bottom);"></div> -->
     
     <!-- scripts -->
-    <script>
-        let actPageAutoReload = 0;
-        let pageAutoReloadTimeSec = 5;
-        // let pageAutoReloadTimeSec = 1;
-        if (actPageAutoReload) {
-            setTimeout(function() { location.reload() }, 1000 * pageAutoReloadTimeSec);
-        }
-    </script>
     <!-- <script src="./js/script.js"></script> -->
 </body>
 </html>

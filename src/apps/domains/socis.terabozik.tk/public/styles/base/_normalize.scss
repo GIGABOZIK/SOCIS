@@ -1,0 +1,70 @@
+
+*, *:before, *:after {
+    /* Chrome 9-, Safari 5-, iOS 4.2-, Android 3-, Blackberry 7- */
+    -webkit-box-sizing: border-box; 
+    /* Firefox (desktop or Android) 28- */
+    -moz-box-sizing: border-box;
+    /* Firefox 29+, IE 8+, Chrome 10+, Safari 5.1+, Opera 9.5+, iOS 5+, Opera Mini Anything, Blackberry 10+, Android 4+ */
+    box-sizing: border-box;
+    //-_-//
+}
+
+body {
+    margin: 0;
+    background-color: $page-bg-color;
+}
+
+// html, body { height: 100%; }
+
+.wrapper-1 {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 10px;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.05);
+}
+
+// .text {}
+
+p {
+    @include font($family: $ff-nice-1, $size: 16px, $weight: normal);
+    color: $base-text-color;
+}
+
+h1 {
+    @include font($family: $ff-nice-1, $size: 32px, $weight: bolder);
+    color: $base-text-color;
+}
+
+h2 {
+    @include font($family: $ff-nice-1, $size: 28px, $weight: bolder);
+    color: $base-text-color;
+}
+
+h3 {
+    @include font($family: $ff-nice-1, $size: 24px, $weight: bold);
+    color: $base-text-color;
+}
+
+button {
+    // 
+}
+
+a {
+    // 
+}
+
+hr {
+	margin: 20px 0;
+	padding: 0;
+	height: 2px;
+	border: none;
+	background:
+        // linear-gradient(to right, transparent 50%, #ffffff00 50%), 
+        linear-gradient(to right, transparent 50%, transparent 50%), 
+        linear-gradient(to right
+            , color.adjust($base-color, $lightness: -10%, $hue: 15deg)
+            , color.adjust($base-color, $lightness: -20%, $hue: -15deg)
+            , color.adjust($base-color, $lightness: -10%, $hue: 15deg)
+        );
+	background-size: 16px 2px, 100% 2px;
+}

@@ -5,40 +5,18 @@
 @import './base/variables';
 @import './base/mixins';
 @import './base/animations';
+@import './base/normalize';
 
 //: COMPONENTS
+@import './components/component-scrollbar';
 @import './components/component-sidebar';
 @import './components/component-header';
 @import './components/component-footer';
 
 //: WIDGETS
 @import './widgets/widget-slider';
+// @import './widgets/widget-border-gradient';
 
 //: PAGES
 @import './pages/page-main';
 @import './pages/page-account';
-
-
-//# styling
-*, *:before, *:after {
-    /* Chrome 9-, Safari 5-, iOS 4.2-, Android 3-, Blackberry 7- */
-    -webkit-box-sizing: border-box; 
-    /* Firefox (desktop or Android) 28- */
-    -moz-box-sizing: border-box;
-    /* Firefox 29+, IE 8+, Chrome 10+, Safari 5.1+, Opera 9.5+, iOS 5+, Opera Mini Anything, Blackberry 10+, Android 4+ */
-    box-sizing: border-box;
-    //-_-//
-}
-
-body {
-    margin: 0;
-    background-color: $page-bg-color;
-}
-
-.wrapper-1 {
-    margin: 0 auto;
-    max-width: 1200px;
-    padding: 0 10px;
-}
-
-//

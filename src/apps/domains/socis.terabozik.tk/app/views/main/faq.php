@@ -1,8 +1,8 @@
-FAQ
+<!-- FAQ -->
 <?php
 
 require_once 'app/lib/widget-banners.php';
-generateSlider();
+echo generateSlider();
 
 
 ?>

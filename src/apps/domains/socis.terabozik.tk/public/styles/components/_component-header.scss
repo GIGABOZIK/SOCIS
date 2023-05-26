@@ -1,8 +1,12 @@
+//: BUILD-IN
+@use "sass:color";
+
 //: HEADER
 header {
     position: sticky;
     top: 0;
-    background-color: $header-bg-color;
+    // background-color: $header-bg-color;
+    background: linear-gradient(to top, $header-bg-color 0%, color.adjust($base-color, $hue: 10deg) 100%);
 }
 .header-cont {
     display: flex;

@@ -1,0 +1,44 @@
+@import '../base/variables';
+
+::-webkit-scrollbar {
+    /* Весь скроллбар */
+    width: $scrollbar-wh;
+    height: $scrollbar-wh;
+    background: transparent;
+}
+::-webkit-scrollbar-track {
+    /* Трек скроллбара */
+    background: $scrollbar-track-bg-color;
+}
+::-webkit-scrollbar-thumb {
+    /* Ползунок */
+    -webkit-border-radius: $scrollbar-wh;
+    border-radius: $scrollbar-wh;
+    background: $scrollbar-thumb-bg-color;
+}
+::-webkit-scrollbar-thumb:hover {
+    /* Цвет бегунка при наведении на него курсора */
+    background: $scrollbar-thumb-bg-color_h;
+}
+::-webkit-scrollbar-thumb:active {
+    /* Цвет бегунка при нажатии */
+    background: $scrollbar-thumb-bg-color_a;
+}
+::-webkit-scrollbar-button {
+    /* Кнопки скроллбара */
+    background: url('') no-repeat;
+    // background: $scrollbar-button-bg-color;
+    width: 0;
+    height: 0;
+}
+::-webkit-scrollbar-corner {
+    /* Уголок */
+    background: $scrollbar-corner-bg-color;
+}
+::-webkit-resizer {
+    /* Изменение размеров */
+    background: url('') no-repeat;
+    // background: $scrollbar-corner-bg-color;
+    width: 0;
+    height: 0;
+}
