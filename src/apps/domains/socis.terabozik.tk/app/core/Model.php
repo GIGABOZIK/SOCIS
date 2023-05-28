@@ -37,7 +37,7 @@ abstract class Model {
             $row = $this->db->row(
                 'SELECT `users`.*, `roles`.`role_name`
                 FROM `users`
-                    LEFT JOIN `roles` ON `roles`.`id` = `users`.`role`
+                    LEFT JOIN `roles` ON `roles`.`id` = `users`.`role_id`
                 WHERE `users`.`'. $key .'`=:'. $key . ';'
                 , $var);
             if (!empty($row)) return $row[0];
@@ -45,14 +45,6 @@ abstract class Model {
         }
         return [];
         // return $this->db->row('SELECT * FROM `user` WHERE `id` = :id', $var);
-    }
-
-    public function createNewUser($var = []) {
-        return $this->db->query('INSERT INTO `users`
-            (`id`, `login`, `password`, `email`) VALUES
-            (NULL, :login,  :password,  :email)'
-            , $var
-        );
     }
 
     public function updSessionUser($var = []) {

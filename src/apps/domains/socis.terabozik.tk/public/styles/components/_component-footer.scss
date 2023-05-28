@@ -5,13 +5,38 @@
 footer {
     // background-color: $footer-bg-color;
     background: linear-gradient(to bottom, $footer-bg-color 0%, color.adjust($base-color, $hue: 10deg) 100%);
+    
 }
+
 .footer-cont {
+    // min-height: 100%;
+    padding-bottom: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     section {
         margin: 15px;
-        min-width: 350px;
+        // min-width: 350px;
+        min-width: 340px;
+        // min-height: 250px;
     }
 }
+
+.socials {
+    div {
+        display: flex;
+        // justify-content: space-evenly;
+        a {
+            display: block;
+            margin: 0 5px;
+            transition: all 100ms;
+            &:hover {
+                transform: scale(1.1);
+            }
+            &:active {
+                transform: scale(0.99);
+            }
+        }
+    }
+}
+

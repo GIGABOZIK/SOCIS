@@ -1,0 +1,17 @@
+//: SERVICES
+
+.services {
+    .service {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 2px solid #bbF;
+        border-radius: 10px;
+    }
+    .service:nth-child(odd) {
+        text-align: left;
+    }
+    .service:nth-child(even) {
+        text-align: right;
+    }
+}

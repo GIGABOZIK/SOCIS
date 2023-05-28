@@ -6,6 +6,7 @@
 // define('MODEL_PATH', APP_PATH . 'models/');
 // define('VIEW_PATH', APP_PATH . 'views/');
 
+date_default_timezone_set('Europe/Moscow');
 // Подключение дополнительных функций
 require_once 'app/lib/dev.php';
 // require_once APP_PATH . '/lib/dev.php';
@@ -87,4 +88,5 @@ $router->run();
 
 // include 'temp_info.php';
 
+// echo '<br>' . date("H:i:s :: d.m.Y :: w - S");
 ?>

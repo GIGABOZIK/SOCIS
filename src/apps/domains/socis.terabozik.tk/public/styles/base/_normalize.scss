@@ -21,26 +21,32 @@ body {
     max-width: 1200px;
     padding: 0 10px;
     box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.05);
+    // border-radius: 5px;
 }
 
 // .text {}
 
 p {
+    margin-bottom: 10px;
     @include font($family: $ff-nice-1, $size: 16px, $weight: normal);
     color: $base-text-color;
 }
 
 h1 {
+    text-align: center;
+    margin-top: 15px;
     @include font($family: $ff-nice-1, $size: 32px, $weight: bolder);
     color: $base-text-color;
 }
 
 h2 {
+    margin-top: 10px;
     @include font($family: $ff-nice-1, $size: 28px, $weight: bolder);
     color: $base-text-color;
 }
 
 h3 {
+    margin-top: 10px;
     @include font($family: $ff-nice-1, $size: 24px, $weight: bold);
     color: $base-text-color;
 }
@@ -54,7 +60,8 @@ a {
 }
 
 hr {
-	margin: 20px 0;
+	// margin: 20px 0;
+	margin: 10px 0;
 	padding: 0;
 	height: 2px;
 	border: none;
@@ -62,9 +69,12 @@ hr {
         // linear-gradient(to right, transparent 50%, #ffffff00 50%), 
         linear-gradient(to right, transparent 50%, transparent 50%), 
         linear-gradient(to right
-            , color.adjust($base-color, $lightness: -10%, $hue: 15deg)
-            , color.adjust($base-color, $lightness: -20%, $hue: -15deg)
+            , color.adjust($base-color, $lightness: -10%, $hue: 25deg)
+            , color.adjust($base-color, $lightness: -15%, $hue: -15deg)
             , color.adjust($base-color, $lightness: -10%, $hue: 15deg)
         );
 	background-size: 16px 2px, 100% 2px;
 }
+// , color.adjust($base-color, $lightness: -10%, $hue: 15deg)
+// , color.adjust($base-color, $lightness: -20%, $hue: -15deg)
+// , color.adjust($base-color, $lightness: -10%, $hue: 15deg)

@@ -34,20 +34,29 @@ return [
         'controller' => 'main',
         'action' => 'index',
     ],
-    //### Контакты
-    'contacts' => [
+    'main' => [
         'controller' => 'main',
-        'action' => 'contacts',
+        'action' => 'index',
     ],
-    //### FAQ
-    'faq' => [
-        'controller' => 'main',
-        'action' => 'faq',
-    ],
+    // 'main/index' => [
+    //     'controller' => 'main',
+    //     'action' => 'index',
+    // ],
+    // //### Контакты
+    // 'contacts' => [
+    //     'controller' => 'main',
+    //     'action' => 'contacts',
+    // ],
+    // //### FAQ
+    // 'faq' => [
+    //     'controller' => 'main',
+    //     'action' => 'faq',
+    // ],
     //### Услуги
+    //## Услуги
     'services' => [
-        'controller' => 'main',
-        'action' => 'services',
+        'controller' => 'services',
+        'action' => 'index',
     ],
     //## Личный кабинет
     'account' => [
@@ -73,6 +82,11 @@ return [
     'account/orders' => [
         'controller' => 'account',
         'action' => 'orders',
+    ],
+    //### Канбан
+    'account/kanban' => [
+        'controller' => 'account',
+        'action' => 'kanban',
     ],
     //## 
 

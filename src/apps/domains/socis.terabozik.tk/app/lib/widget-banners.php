@@ -7,13 +7,13 @@ function generateBanner($image = 'src', $alt = 'Banner-Image'
     $html = '<section class="banner border-gradient">';
     $html .= '<img src="' . $image . '" alt="'. $alt . '">';
     $html .= '</section>';
-    $html .= '
-    <style>
-    .banner img {
-        display: block;
-        margin: 3px auto;+
-    }
-    </style>';
+    // $html .= '
+    // <style>
+    // .banner img {
+    //     display: block;
+    //     margin: 3px auto;
+    // }
+    // </style>';
     return $html;
 }
 

@@ -32,8 +32,8 @@
     { ?>
             <link rel="stylesheet" href="/public/styles/debug.css<?php echo $addVersion; ?>">
             <float style="position:fixed; right:0; bottom:0; padding: 5px">
-                <p><?php printArray($_SESSION['user'], 'DEBUG -> USER'); ?></p>
-                <!-- <p><?php printArray($_SESSION); ?></p> -->
+                <!-- <p><?php printArray($_SESSION['user'], 'DEBUG -> USER'); ?></p> -->
+                <p><?php printArray($_SESSION); ?></p>
                 <!-- <p><a href="?logout=1">logout</a></p>
                 <p><a href="?user=1">user1</a></p>
                 <p><a href="?user=2">user2</a></p> -->
@@ -41,7 +41,6 @@
             <script>
                 let actPageAutoReload = 0;
                 let pageAutoReloadTimeSec = 5;
-                // let pageAutoReloadTimeSec = 1;
                 if (actPageAutoReload) {
                     setTimeout(function() { location.reload() }, 1000 * pageAutoReloadTimeSec);
                 }
@@ -64,19 +63,26 @@
                     <img src="/public/images/logo_c.png" alt="logo" draggable=false>
                     <span><?php echo $titleBrand; ?></span>
                 </a>
+                <!-- <div class="breadcrumbs"><?php echo 'Вы здесь > '
+                    . '<a href="/' . $this->routeParams['controller'] . '">' . $this->routeParams['controller'] . '</a>' . ' > '
+                    . '<a href="/' . $this->routeParams['controller'] . '/' . $this->routeParams['action'] . '">' . $this->routeParams['action'] . '</a>'
+                    ; ?></div> -->
 
                 <nav class="navigation">
                     <?php
                     // var_dump($this->routeParams);
                     $h_nav_links = [
                         'main'      => ['/',                'Главная'],
-                        // 'services'  => ['/services',        'Услуги'],
-                        'faq'       => ['/faq',             'FAQ'],
+                        'services'  => ['/services',        'Услуги'],
+                        // 'faq'       => ['/faq',             'FAQ'],
                         // 'contacts'  => ['/contacts',        'Контакты'],
                         'account'   => ['/account',         'Личный кабинет'],
                         // 'orders'    => ['/account/orders',  'Заказы'],
                         
                     ];
+                    if ($_SESSION['user']['role_name']=='admin') array_push($h_nav_links, ['http://foreverfunface.tplinkdns.com:8880/" target="_blank', 'KanBan']);
+                    // if ($_SESSION['user']['role_name']=='admin') array_push($h_nav_links, ['/account/kanban', 'KanBan2']);
+                    if ($_SESSION['user']['id'] > 0) array_push($h_nav_links, ['/account/orders', 'Заказы']);
                     if ($_SESSION['user']['id'] > 0) array_push($h_nav_links, ['/?logout=1', 'Выйти']);
                     foreach ($h_nav_links as $page => $array) {
                         $out = '<a class="h-nav-link';
@@ -94,8 +100,6 @@
 
                 <!-- <span class="account">account</span> -->
             </div>
-
-            <!-- <div><?php echo 'Вы здесь > ' . $this->routeParams['controller'] . ' > ' . $this->routeParams['action']; ?></div> -->
         </div>
     </header>
 
@@ -115,31 +119,47 @@
         <!-- footer -->
         <div class="wrapper-1">
             <div class="footer-cont">
-                <section>
+                <section class="contacts">
                     <h2>Контакты</h2>
                     <hr>
                     <p>Город, улица</p>
-                    <p>Телефон</p>
-                    <p>Email</p>
+                    <p><a href="tel:(987)6543210">Телефон: (987) 654-32-10</a></p>
+                    <p><a href="mailto:inbox@socis">Email: inbox@socis</a></p>
                 </section>
-                <section>
+                <section class="schedule">
                     <h2>Часы работы</h2>
                     <hr>
                     <p>Понедельник-Пятница</p>
                     <p>9:00 - 19:00</p>
                 </section>
-                <section>
+                <!-- <section>
                     <h2>Feedback</h2>
                     <hr>
-                    <form action="">fb-form</form>
-                </section>
-                <section>
+                    <form action="#">
+                        <textarea name="feedback" rows="3" cols="40"></textarea>
+                        <br><button type="submit">Отправить</button>
+                    </form>
+                </section> -->
+                <section class="socials">
                     <h2>Мы в соцсетях</h2>
                     <hr>
-                    <span>1</span>
-                    <span>2</span>
-                    <span>3</span>
+                    <div>
+                        <?php
+                        foreach ([
+                            // 'Email'     => ['href' => 'mailto:socis@mail',                  'image' => '/public/images/svg/socials-email.svg'],
+                            'GitHub'    => ['href' => 'https://github.com/GIGABOZIK/SOCIS', 'image' => '/public/images/svg/socials-github.svg'],
+                            'VKontakte' => ['href' => '#VK',                                'image' => '/public/images/svg/socials-vk.svg'],
+                            'Telegram'  => ['href' => '#TG',                                'image' => '/public/images/svg/socials-telegram.svg'],
+                            'YouTube'   => ['href' => '#YT',                                'image' => '/public/images/svg/socials-youtube.svg'],
+                        ] as $key => $value) {
+                            echo '<a href="' . $value['href'] . '">'
+                            . '<img src="' . $value['image'] . '" alt="' . $key. '">'
+                            . '</a>'; 
+                        }
+                        ?>
+                    </div>
                 </section>
+                </div>
             </div>
         </div>
         <!-- <p class="a-center">Все права защищены &copy; 2023</p> -->

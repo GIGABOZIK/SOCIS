@@ -27,7 +27,7 @@ class View {
             require 'app/views/layouts/' . $this->layout . '.php'; //? Вывод выбранного шаблона
         }
         // else $this::errorCode(404); //!
-        // } else echo 'Не найдено отображение: ' . $this->viewPath;
+        else echo 'Не найдено отображение: ' . $this->viewPath;
     }
 
     public function redirect($url) {

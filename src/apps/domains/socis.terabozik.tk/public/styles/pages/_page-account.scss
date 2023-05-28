@@ -2,11 +2,11 @@
 form.account {
     max-width: 400px;
     margin: 5px auto;
-    padding: 20px;
+    padding: 30px 20px;
     // background-color: #f2f2f2;
     background-color: $acc-form-bg-color;
     border: 1px solid $acc-form-input-border-color;
-    border-radius: 5px;
+    border-radius: 10px;
     label {
         display: block;
         margin-bottom: 5px;
@@ -16,13 +16,16 @@ form.account {
     }
     input[type="text"],
     input[type="email"],
-    input[type="password"] {
+    input[type="date"],
+    input[type="password"], textarea {
         width: 100%;
         padding: 10px;
         margin-bottom: 15px;
         border: 1px solid $acc-form-input-border-color;
         border-radius: 5px;
         background-color: $acc-form-input-bg-color;
+        @include font($family: $ff-nice-0);
+        color: $acc-form-label-color;
     }
     button[type="submit"] {
         display: block;
@@ -35,6 +38,16 @@ form.account {
         @include font($family: $ff-nice-0);
         color: $acc-form-btn-text-color;
     }
+    select {
+        margin-bottom: 10px;
+        width: 100%;
+        padding: 10px;
+        border: 1px solid $acc-form-input-border-color;
+        border-radius: 5px;
+        @include font($family: $ff-nice-0);
+        background-color: $acc-form-input-bg-color;
+        color: $acc-form-label-color;
+    }
     p {
         text-align: center;
         a {
@@ -45,4 +58,53 @@ form.account {
             }
         }
     }
+    span { max-width: 40%; }
+}
+
+
+$table-border-radius: 10px;
+table.account.orders {
+    text-align: center;
+    border-radius: $table-border-radius;
+    @include font($family: $ff-nice-0);
+    color: $acc-form-label-color;
+    width: 100%;
+    border-collapse: collapse;
+    tr {
+        background-color: color.adjust($base-color, $lightness: 10%, $hue: 10deg);
+        &:nth-child(even) {
+            background-color: color.adjust($base-color, $lightness: 5%, $hue: 10deg);
+        }
+        &:hover {
+            border-radius: $table-border-radius;
+            background-color: color.adjust($base-color, $lightness: 5%, $hue: 0deg);
+            outline: 1px solid color.adjust($base-color, $lightness: -15%, $hue: 10deg);
+        }
+    }
+    // thead {
+        th {
+            &:first-child { border-radius: $table-border-radius 0 0 0; }
+            &:last-child  { border-radius: 0 $table-border-radius 0 0; }
+            padding: 8px;
+            background-color: color.adjust($base-color, $lightness: -5%, $hue: 10deg);
+            font-weight: bold;
+            a {
+                text-decoration: underline;
+                color: $acc-form-label-color;
+            }
+        }
+    // }
+    // tbody {
+        td {
+            padding: 8px;
+            // border: 1px solid #ccc;
+            // outline: 1px dotted color.adjust($base-color, $lightness: -10%);
+        }
+    // }
+}
+
+
+
+.new-order form {
+    max-width: 600px;
 }

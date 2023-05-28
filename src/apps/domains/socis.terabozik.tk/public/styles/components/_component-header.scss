@@ -4,6 +4,7 @@
 //: HEADER
 header {
     position: sticky;
+    z-index: 1;
     top: 0;
     // background-color: $header-bg-color;
     background: linear-gradient(to top, $header-bg-color 0%, color.adjust($base-color, $hue: 10deg) 100%);
@@ -48,4 +49,11 @@ header {
     // .account {
     //     // 
     // }
+}
+.breadcrumbs {
+    padding: 3px;
+    @include font($size: 14px, $weight: 500);
+    @include text-shadow($color: $logo-color);
+    // color: $h-nav-color_current;
+    color: color.adjust($h-nav-color_current, $lightness: -20%);
 }

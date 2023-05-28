@@ -15,6 +15,8 @@ return [
     ],
     'admin' => [
         'profile',
+        'orders',
+        'kanban',
         'admin',
     ],
 ];
