@@ -79,7 +79,7 @@
                     ];
                     if ($_SESSION['user']['role_name']=='admin') array_push($h_nav_links, ['http://foreverfunface.tplinkdns.com:8880/" target="_blank', 'KanBan']);
                     if ($_SESSION['user']['role_name']=='admin') array_push($h_nav_links, ['http://foreverfunface.tplinkdns.com:3001/" target="_blank', 'Мониторинг']);
-                    // if ($_SESSION['user']['role_name']=='admin') array_push($h_nav_links, ['http://176.15.255.161:8001/" target="_blank', 'PMA']);
+                    if ($_SESSION['user']['role_name']=='admin') array_push($h_nav_links, ['http://176.15.255.161:8001/" target="_blank', 'PMA']);
                     // if ($_SESSION['user']['role_name']=='admin') array_push($h_nav_links, ['/phpmyadmin" target="_blank', 'PMA']);
                     // if ($_SESSION['user']['role_name']=='admin') array_push($h_nav_links, ['/account/kanban', 'KanBan2']);
                     if ($_SESSION['user']['id'] > 0) array_push($h_nav_links, ['/account/orders', 'Заказы']);

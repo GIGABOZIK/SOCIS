@@ -47,7 +47,7 @@ extract($_SESSION['user']);
 
         <label for="project-deadline">Дедлайн:</label>
         <!-- <input type="date" id="project-deadline" name="project-deadline" min="<?php echo date("Y-m-d"); ?>" max="<?php echo date("Y-m-d", time()+86400*365*5); ?>" required> -->
-        <input type="date" id="project-deadline" name="project-deadline" min="<?php echo date("Y-m-d"); ?>" max="<?php echo date("Y-m-d", time()+157680000); ?>" required>
+        <input type="date" id="project-deadline" name="project-deadline" placeholder="DD-MM-YYYY" min="<?php echo date("Y-m-d"); ?>" max="<?php echo date("Y-m-d", time()+157680000); ?>" required>
 
 
         <label for="project-description" title="Введите описание вашего проекта">Описание проекта:</label>

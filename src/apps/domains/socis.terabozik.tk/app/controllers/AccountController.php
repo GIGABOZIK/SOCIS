@@ -66,8 +66,8 @@ class AccountController extends Controller {
         if (!empty($_POST)) {
             $response = $this->model->createNewOrder($_POST);
             if ($response['status'] == 'Success') {
-                // $this->view->location('/account?action=createdOrder');
-                $this->view->message('Отлично!', 'Авторизован');
+                $this->view->location('/account?action=createdOrder');
+                // $this->view->message('Отлично!', 'Авторизован');
             } else $this->view->message($response['status'], $response['message']);
         }
 
