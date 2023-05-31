@@ -3,7 +3,11 @@
 
 //: 
 // $base-color-dark: #1c2635; //
-$base-color-light: #9abaff;
+$base-color-light: #9abaff; // orig
+// $base-color-light: #ecc8eb;
+// $base-color-light: #ecc8c8;
+// $base-color-light: #a1d0d1;
+$base-color-light: #ddd1e7;
 $base-color: $base-color-light;
 
 //: FONTS
@@ -25,9 +29,10 @@ $base-text-color: color.adjust($base-color, $lightness: -55%);
 $page-bg-color:     color.adjust($base-color, $lightness: 10%);
 
 //> scrollbar
-$scrollbar-wh: 3px;
+$scrollbar-wh: 5px;
 $scrollbar-track-bg-color:      color.adjust($base-color, $lightness: -5%);
-$scrollbar-thumb-bg-color:      color.adjust($base-color, $lightness: -20%);
+// $scrollbar-thumb-bg-color:      color.adjust($base-color, $lightness: -20%);
+$scrollbar-thumb-bg-color:      color.adjust($base-color, $lightness: -25%);
 $scrollbar-thumb-bg-color_h:    color.adjust($base-color, $lightness: -25%);
 $scrollbar-thumb-bg-color_a:    color.adjust($base-color, $lightness: -30%);
 $scrollbar-corner-bg-color:     color.adjust($base-color, $lightness: -20%);
@@ -40,7 +45,8 @@ $header-bg-color:   color.adjust($page-bg-color, $lightness: -10%, $alpha: -0.1,
 $header-height: 70px;
 //>> logo
 $logo-height: 50px;
-$logo-color:            color.adjust($base-color, $lightness: -15%);
+// $logo-color:            color.adjust($base-color, $lightness: -15%);
+$logo-color:            color.adjust($base-color, $lightness: -25%);
 //>> nav
 $h-nav-color:           color.adjust($base-color, $lightness: -15%);
 $h-nav-color_current:   color.adjust($h-nav-color, $lightness: -8%);

@@ -8,6 +8,7 @@ header {
     top: 0;
     // background-color: $header-bg-color;
     background: linear-gradient(to top, $header-bg-color 0%, color.adjust($base-color, $hue: 10deg) 100%);
+    @include box-shadow($blur: 2px, $spread: 2px, $color: $header-bg-color);
 }
 .header-cont {
     display: flex;
@@ -56,4 +57,37 @@ header {
     @include text-shadow($color: $logo-color);
     // color: $h-nav-color_current;
     color: color.adjust($h-nav-color_current, $lightness: -20%);
+}
+
+
+@media (max-width:1000px) {
+    .header-cont {
+        &::after {
+            content: "";
+            background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/280px-Hamburger_icon.svg.png");
+            // position: absolute;
+            background-size: contain;
+            width: 50px; height: 50px;
+            @include font($size: 16px, $weight: 500);
+            @include text-shadow($color: $logo-color);
+            color: $h-nav-color_current;
+        }
+        .navigation {
+            flex-direction: column;
+            position: absolute;
+            top: 0; right: 0;
+            padding: 10px 20px 10px 10px;
+            background-color: $header-bg-color;
+            border-radius: 10px;
+            opacity: 0;
+            transition: 500ms all;
+            transform: translateY(-100%);
+        }
+        &:hover, &:active {
+            .navigation {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    }
 }

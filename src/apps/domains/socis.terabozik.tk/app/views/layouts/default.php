@@ -18,8 +18,12 @@
     <title><?php echo $titlePage . " · " . $titleBrand; ?></title>
 
     <!-- STYLES -->
-    <?php $addVersion = '?v=' . time(); ?>
-    <link rel="stylesheet" href="/public/styles/commonStyles.css<?php echo $addVersion; ?>">
+
+    <link rel="stylesheet" href="/public/styles/commonStyles.css">
+
+    <!-- <?php $addVersion = '?v=' . time(); ?> -->
+    <!-- <link rel="stylesheet" href="/public/styles/commonStyles.css<?php echo $addVersion; ?>"> -->
+
     <!-- <link rel="stylesheet" href="/public/styles/<?php echo $this->routeParams['controller'] . '.css' . $addVersion; ?>"> -->
 
     <!-- SCRIPTS -->
@@ -39,7 +43,7 @@
                 <p><a href="?user=2">user2</a></p> -->
             </float>
             <script>
-                let actPageAutoReload = 0;
+                let actPageAutoReload = 1;
                 let pageAutoReloadTimeSec = 5;
                 if (actPageAutoReload) {
                     setTimeout(function() { location.reload() }, 1000 * pageAutoReloadTimeSec);

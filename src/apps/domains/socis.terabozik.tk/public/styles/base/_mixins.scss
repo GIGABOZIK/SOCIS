@@ -40,7 +40,11 @@
 }
 
 //> Shadow
-@mixin text-shadow($x-offset: 1px, $y-offset: 2px, $blur-radius: 3px, $color: $base-text-color) {
-    text-shadow: $x-offset $y-offset $blur-radius $color;
+@mixin text-shadow($x-offset: 1px, $y-offset: 2px, $blur: 3px, $color: $base-text-color) {
+    text-shadow: $x-offset $y-offset $blur $color;
 }
-//` @mixin box-shadow() {}
+@mixin box-shadow($x-offset: 1px, $y-offset: 2px, $blur: 3px, $spread: 4px, $color: $base-color) {
+    box-shadow: $x-offset $y-offset $blur $spread $color;
+}
+
+

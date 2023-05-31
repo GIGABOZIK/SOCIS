@@ -4,17 +4,22 @@
     /* Весь скроллбар */
     width: $scrollbar-wh;
     height: $scrollbar-wh;
-    background: transparent;
+    // background: transparent;
 }
 ::-webkit-scrollbar-track {
     /* Трек скроллбара */
-    background: $scrollbar-track-bg-color;
+    // background: $scrollbar-track-bg-color;
+    // background:  linear-gradient(45deg, $scrollbar-track-bg-color 10%, $scrollbar-thumb-bg-color, $scrollbar-track-bg-color 90%);
+    // background:  linear-gradient(45deg, $scrollbar-thumb-bg-color 10%, $scrollbar-track-bg-color, $scrollbar-thumb-bg-color 90%);
+    background:  linear-gradient(45deg, rgb(57, 135, 212) 10%, $scrollbar-track-bg-color, #f39548 90%);
 }
 ::-webkit-scrollbar-thumb {
     /* Ползунок */
     -webkit-border-radius: $scrollbar-wh;
     border-radius: $scrollbar-wh;
-    background: $scrollbar-thumb-bg-color;
+    // background: $scrollbar-thumb-bg-color;
+    background: transparent;
+    box-shadow: 0px 0px 0px 100000vh $scrollbar-track-bg-color;
 }
 ::-webkit-scrollbar-thumb:hover {
     /* Цвет бегунка при наведении на него курсора */

@@ -5,7 +5,7 @@
 footer {
     // background-color: $footer-bg-color;
     background: linear-gradient(to bottom, $footer-bg-color 0%, color.adjust($base-color, $hue: 10deg) 100%);
-    
+    @include box-shadow($blur: 2px, $spread: 2px, $color: $footer-bg-color);
 }
 
 .footer-cont {

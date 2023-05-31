@@ -16,9 +16,16 @@
   box-sizing: border-box;
 }
 
+html {
+  color-scheme: light dark;
+}
+
 body {
   margin: 0;
-  background-color: #cdddff;
+  background-color: #f6f3f8;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.5;
 }
 
 .wrapper-1 {
@@ -33,7 +40,7 @@ p {
   font-family: "Trebuchet MS", "Candara", Calibri, Arial;
   font-size: 16px;
   font-weight: normal;
-  color: #002981;
+  color: #523769;
 }
 
 h1 {
@@ -42,7 +49,7 @@ h1 {
   font-family: "Trebuchet MS", "Candara", Calibri, Arial;
   font-size: 32px;
   font-weight: bolder;
-  color: #002981;
+  color: #523769;
 }
 
 h2 {
@@ -50,7 +57,7 @@ h2 {
   font-family: "Trebuchet MS", "Candara", Calibri, Arial;
   font-size: 28px;
   font-weight: bolder;
-  color: #002981;
+  color: #523769;
 }
 
 h3 {
@@ -58,7 +65,11 @@ h3 {
   font-family: "Trebuchet MS", "Candara", Calibri, Arial;
   font-size: 24px;
   font-weight: bold;
-  color: #002981;
+  color: #523769;
+}
+
+button {
+  box-shadow: 1px 2px 2px 2px #ddd1e7;
 }
 
 hr {
@@ -66,36 +77,43 @@ hr {
   padding: 0;
   height: 2px;
   border: none;
-  background: linear-gradient(to right, transparent 50%, transparent 50%), linear-gradient(to right, #7667ff, #4eb2ff, #6771ff);
+  background: linear-gradient(to right, transparent 50%, transparent 50%), linear-gradient(to right, #d4afd6, #ac9fcd, #ceafd6);
   background-size: 16px 2px, 100% 2px;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+  display: block;
 }
 
 ::-webkit-scrollbar {
   /* Весь скроллбар */
-  width: 3px;
-  height: 3px;
-  background: transparent;
+  width: 5px;
+  height: 5px;
 }
 
 ::-webkit-scrollbar-track {
   /* Трек скроллбара */
-  background: #81a9ff;
+  background: linear-gradient(45deg, rgb(57, 135, 212) 10%, #d1c0de, #f39548 90%);
 }
 
 ::-webkit-scrollbar-thumb {
   /* Ползунок */
-  border-radius: 3px;
-  background: #3474ff;
+  border-radius: 5px;
+  background: transparent;
+  box-shadow: 0px 0px 0px 100000vh #d1c0de;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   /* Цвет бегунка при наведении на него курсора */
-  background: #1b63ff;
+  background: #9f7dbb;
 }
 
 ::-webkit-scrollbar-thumb:active {
   /* Цвет бегунка при нажатии */
-  background: #0151ff;
+  background: #936cb3;
 }
 
 ::-webkit-scrollbar-button {
@@ -107,7 +125,7 @@ hr {
 
 ::-webkit-scrollbar-corner {
   /* Уголок */
-  background: #3474ff;
+  background: #ab8ec4;
 }
 
 ::-webkit-resizer {
@@ -129,7 +147,8 @@ header {
   position: sticky;
   z-index: 1;
   top: 0;
-  background: linear-gradient(to top, rgba(154, 194, 255, 0.9) 0%, #9aa9ff 100%);
+  background: linear-gradient(to top, rgba(219, 209, 231, 0.9) 0%, #e1d1e7 100%);
+  box-shadow: 1px 2px 2px 2px rgba(219, 209, 231, 0.9);
 }
 
 .header-cont {
@@ -157,16 +176,16 @@ header {
   font-size: 32px;
   font-weight: 900;
   transition: all 100ms;
-  color: #4e86ff;
+  color: #9f7dbb;
   text-decoration: none;
-  text-shadow: 1px 2px 3px #4e86ff;
+  text-shadow: 1px 2px 3px #9f7dbb;
 }
 .header-cont .logo-link span:hover {
-  color: #3474ff;
+  color: #936cb3;
 }
 .header-cont .logo-link span:active {
   transform: scale(0.99);
-  color: #2a6dff;
+  color: #8e66af;
 }
 .header-cont .navigation {
   display: flex;
@@ -177,18 +196,18 @@ header {
   font-size: 24px;
   font-weight: 900;
   transition: all 100ms;
-  color: #4e86ff;
+  color: #b89fcd;
   text-decoration: none;
 }
 .header-cont .navigation .h-nav-link:hover {
-  color: #3474ff;
+  color: #ab8ec4;
 }
 .header-cont .navigation .h-nav-link:active {
   transform: scale(0.99);
-  color: #2a6dff;
+  color: #a787c1;
 }
 .header-cont .navigation .h-nav-link.current {
-  color: #256aff;
+  color: #a484bf;
 }
 
 .breadcrumbs {
@@ -196,12 +215,43 @@ header {
   font-family: "Trebuchet MS", "Candara", Calibri, Arial;
   font-size: 14px;
   font-weight: 500;
-  text-shadow: 1px 2px 3px #4e86ff;
-  color: #003cbe;
+  text-shadow: 1px 2px 3px #9f7dbb;
+  color: #724c91;
 }
 
+@media (max-width: 1000px) {
+  .header-cont::after {
+    content: "";
+    background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/280px-Hamburger_icon.svg.png");
+    background-size: contain;
+    width: 50px;
+    height: 50px;
+    font-family: "Trebuchet MS", "Candara", Calibri, Arial;
+    font-size: 16px;
+    font-weight: 500;
+    text-shadow: 1px 2px 3px #9f7dbb;
+    color: #a484bf;
+  }
+  .header-cont .navigation {
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px 20px 10px 10px;
+    background-color: rgba(219, 209, 231, 0.9);
+    border-radius: 10px;
+    opacity: 0;
+    transition: 500ms all;
+    transform: translateY(-100%);
+  }
+  .header-cont:hover .navigation, .header-cont:active .navigation {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 footer {
-  background: linear-gradient(to bottom, #679fff 0%, #9aa9ff 100%);
+  background: linear-gradient(to bottom, #c2afd6 0%, #e1d1e7 100%);
+  box-shadow: 1px 2px 2px 2px #c2afd6;
 }
 
 .footer-cont {
@@ -290,17 +340,17 @@ footer {
   font-size: 16px;
   font-weight: normal;
   transition: all 100ms;
-  color: #002981;
+  color: #523769;
   text-decoration: none;
-  border: 1px solid #6797ff;
-  background-color: #81b3ff;
+  border: 1px solid #c4afd6;
+  background-color: #cec0de;
 }
 .slider .controls button:hover {
-  color: #002167;
+  color: #452e58;
 }
 .slider .controls button:active {
   transform: scale(0.99);
-  color: #001d5d;
+  color: #402a51;
 }
 .slider .controls button:nth-child(1) {
   border-radius: 10px 0 0 10px;
@@ -309,14 +359,14 @@ footer {
   border-radius: 0 10px 10px 0;
 }
 .slider .controls button:hover {
-  background-color: #b4cbff;
+  background-color: #e9e2f0;
 }
 .slider .controls button:active {
-  background-color: #6797ff;
+  background-color: #c4afd6;
 }
 
 main {
-  background-color: #c8d9ff;
+  background-color: #f3eff7;
 }
 
 .features {
@@ -373,8 +423,8 @@ form.account {
   max-width: 400px;
   margin: 5px auto;
   padding: 30px 20px;
-  background-color: #b4cbff;
-  border: 1px solid #9c9aff;
+  background-color: #e9e2f0;
+  border: 1px solid #e4d1e7;
   border-radius: 10px;
 }
 form.account label {
@@ -383,7 +433,7 @@ form.account label {
   font-family: "Trebuchet MS", "Candara", Calibri, Arial;
   font-size: 16px;
   font-weight: bold;
-  color: #002167;
+  color: #452e58;
 }
 form.account input[type=text],
 form.account input[type=email],
@@ -392,13 +442,13 @@ form.account input[type=password], form.account textarea {
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
-  border: 1px solid #9c9aff;
+  border: 1px solid #e4d1e7;
   border-radius: 5px;
-  background-color: #d7e4ff;
+  background-color: #fbf9fc;
   font-family: Calibri, Arial;
   font-size: 16px;
   font-weight: normal;
-  color: #002167;
+  color: #452e58;
 }
 form.account button[type=submit] {
   display: block;
@@ -413,7 +463,7 @@ form.account button[type=submit] {
   font-family: Calibri, Arial;
   font-size: 16px;
   font-weight: normal;
-  color: #e7f2ff;
+  color: white;
 }
 form.account button[type=submit]:hover {
   background-color: #449d48;
@@ -426,13 +476,13 @@ form.account select {
   margin-bottom: 10px;
   width: 100%;
   padding: 10px;
-  border: 1px solid #9c9aff;
+  border: 1px solid #e4d1e7;
   border-radius: 5px;
   font-family: Calibri, Arial;
   font-size: 16px;
   font-weight: normal;
-  background-color: #d7e4ff;
-  color: #002167;
+  background-color: #fbf9fc;
+  color: #452e58;
 }
 form.account p {
   text-align: center;
@@ -454,24 +504,24 @@ table.account.orders {
   font-family: Calibri, Arial;
   font-size: 16px;
   font-weight: normal;
-  color: #002167;
+  color: #452e58;
   width: 100%;
   border-collapse: collapse;
 }
 table.account.orders tr {
-  background-color: #cdd5ff;
+  background-color: #f7f3f8;
 }
 table.account.orders tr:nth-child(even) {
-  background-color: #b4bfff;
+  background-color: #ece2f0;
 }
 table.account.orders tr:hover {
   border-radius: 10px;
-  background-color: #b4cbff;
-  outline: 1px solid #4e68ff;
+  background-color: #e9e2f0;
+  outline: 1px solid #c09fcd;
 }
 table.account.orders th {
   padding: 8px;
-  background-color: #8193ff;
+  background-color: #d6c0de;
   font-weight: bold;
 }
 table.account.orders th:first-child {
@@ -482,7 +532,7 @@ table.account.orders th:last-child {
 }
 table.account.orders th a {
   text-decoration: underline;
-  color: #002167;
+  color: #452e58;
 }
 table.account.orders td {
   padding: 8px;
