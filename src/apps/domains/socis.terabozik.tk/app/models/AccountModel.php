@@ -177,8 +177,9 @@ class AccountModel extends Model {
         );
     }
 
-    public function getOrders($sort_sql, $userId = 0) {
+    public function getOrders($sort_sql, $userId, $queryType = 'client') {
         if (isset($userId)) $where_string = 'WHERE `U`.`id` = ' . $userId; else $where_string = '';
+        if ($queryType == 'admin') $where_string = 'WHERE `O`.`status_id` BETWEEN 1 and 2'; else $where_string = $where_string;
         $result = $this->db->row(
         // var_dump(
             "SELECT

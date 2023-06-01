@@ -24,12 +24,12 @@ extract($_SESSION['user']);
 <hr><section class="account orders">
     <h2>Список заказов</h2>
     <?php
-        if (!$hasOrders) echo '<p>Заказов нет</p>';
+        // if (!$hasOrders) echo '<p>Заказов нет</p>';
+        if (!$hasOrders) echo '<h3>Заказов нет</h3>';
         // else echo '<div><iframe src="/account/orders">Список заказов</iframe></div>';
         else require_once "orders.php";
     ?>
 </section>
-
 
 <hr><section class="new-order">
     <h2>Оформите новый заказ</h2>

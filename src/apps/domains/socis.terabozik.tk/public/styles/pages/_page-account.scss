@@ -59,6 +59,11 @@ form.account {
         }
     }
     span { max-width: 40%; }
+    
+    input[type="date"], select {
+        // max-width: 200px;
+        background-color: color.adjust($base-color, $lightness: -10%);
+    }
 }
 
 

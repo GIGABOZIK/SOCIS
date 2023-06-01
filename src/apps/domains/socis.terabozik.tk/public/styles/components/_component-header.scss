@@ -64,13 +64,16 @@ header {
     .header-cont {
         &::after {
             content: "";
-            background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/280px-Hamburger_icon.svg.png");
+            // background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/280px-Hamburger_icon.svg.png");
+            background: url("/public/images/svg/menu-hamburger-custom.svg");
             // position: absolute;
             background-size: contain;
             width: 50px; height: 50px;
             @include font($size: 16px, $weight: 500);
             @include text-shadow($color: $logo-color);
             color: $h-nav-color_current;
+            transition: all 200ms;
+            opacity: 1;
         }
         .navigation {
             flex-direction: column;
@@ -80,13 +83,17 @@ header {
             background-color: $header-bg-color;
             border-radius: 10px;
             opacity: 0;
-            transition: 500ms all;
-            transform: translateY(-100%);
+            transition: 400ms all;
+            transform: translateY(-50%) translateX(50%) scale(0);
         }
         &:hover, &:active {
             .navigation {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateX(0) translateY(0) scale(1);
+            }
+            &::after {
+                transform: rotate(45deg);
+                opacity: 0.02;
             }
         }
     }

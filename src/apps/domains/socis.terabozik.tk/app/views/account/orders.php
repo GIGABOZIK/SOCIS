@@ -1,7 +1,3 @@
-<style>
-    
-</style>
-
 <?php
 /* Функция вывода ссылок */
 function sort_link_th($title, $a, $b) {
@@ -24,14 +20,16 @@ function sort_link_th($title, $a, $b) {
                 'ID'            => 'id',
                 'Название'      => 'title',
                 'Тип'           => 'typeTitle',
-                // 'Описание'      => 'description',
-                'Дата создания' => 'date_created',
                 'Статус'        => 'statusTitle',
-                'Пользователь'  => 'userLogin',
+                'Заказчик'  	=> 'userLogin',
+                'Дата создания' => 'date_created',
                 'Дедлайн'       => 'date_deadline',
+                // 'Описание'      => 'description',
             ];
+			if ($_SESSION['user']['role_name'] == 'admin') $theader['Описание'] = 'description';
             foreach ($theader as $key => $value) {
-                echo '<th>' . sort_link_th($key, $value . '_asc', $value . '_desc') . '</th>';
+                if ($_SESSION['user']['role_name'] !='admin' && $key == 'Заказчик') continue;
+				echo '<th>' . sort_link_th($key, $value . '_asc', $value . '_desc') . '</th>';
             }
             ?>
 		</tr>
@@ -41,11 +39,12 @@ function sort_link_th($title, $a, $b) {
 		<?php foreach ($orderList as $row): ?>
 		<tr>
             <?php foreach ($theader as $key => $value) {
-                echo '<td>' . $row[$value] . '</td>';
+                if ($_SESSION['user']['role_name'] !='admin' && $key == 'Заказчик') continue;
+				if (in_array($value, ['date_deadline'])) 	$row[$value] = date("d-m-Y", strtotime($row[$value]));
+				if (in_array($value, ['date_created'])) 	$row[$value] = date("d-m-Y H:i", strtotime($row[$value]));
+				// if (in_array($value, ['statusTitle'])) 		$row[$value] = REPLACE;
+				echo '<td>' . $row[$value] . '</td>';
             } ?>
-			<!-- <td><?php echo $row['id']; ?></td>
-			<td><?php echo $row['title']; ?></td>
-			<td><?php echo $row['date_created']; ?></td> -->
 		</tr>
 		<?php endforeach; ?>    
 	</tbody>

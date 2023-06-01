@@ -222,7 +222,7 @@ header {
 @media (max-width: 1000px) {
   .header-cont::after {
     content: "";
-    background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/280px-Hamburger_icon.svg.png");
+    background: url("/public/images/svg/menu-hamburger-custom.svg");
     background-size: contain;
     width: 50px;
     height: 50px;
@@ -231,6 +231,8 @@ header {
     font-weight: 500;
     text-shadow: 1px 2px 3px #9f7dbb;
     color: #a484bf;
+    transition: all 200ms;
+    opacity: 1;
   }
   .header-cont .navigation {
     flex-direction: column;
@@ -241,12 +243,16 @@ header {
     background-color: rgba(219, 209, 231, 0.9);
     border-radius: 10px;
     opacity: 0;
-    transition: 500ms all;
-    transform: translateY(-100%);
+    transition: 400ms all;
+    transform: translateY(-50%) translateX(50%) scale(0);
   }
   .header-cont:hover .navigation, .header-cont:active .navigation {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0) translateY(0) scale(1);
+  }
+  .header-cont:hover::after, .header-cont:active::after {
+    transform: rotate(45deg);
+    opacity: 0.02;
   }
 }
 footer {
@@ -373,43 +379,38 @@ main {
   /* max-width: 800px; */
   margin: 0 auto;
   /* background-color: #fff; */
-  padding: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .feature {
-  padding: 10px;
+  padding: 15px;
   max-width: 800px;
   margin: 20px auto;
-  border: 2px solid #bbF;
+  border: 2px solid #b89fcd;
   border-radius: 10px;
   display: flex;
   /* margin-bottom: 20px; */
 }
-
 .feature img {
   display: block;
   -o-object-fit: cover;
      object-fit: cover;
-  width: 100px;
-  height: 100px;
-  margin-right: 20px;
+  width: 180px;
+  height: 130px;
+  margin: auto 20px auto 0;
   border-radius: 10px;
 }
-
 .feature div {
   flex: 1;
 }
-
-.feature div p {
-  margin-bottom: 10px;
+.feature div h2 {
+  margin: 0;
 }
 
 .services .service {
   max-width: 800px;
   margin: 20px auto;
   padding: 20px;
-  border: 2px solid #bbF;
+  border: 2px solid #b89fcd;
   border-radius: 10px;
 }
 .services .service:nth-child(odd) {
@@ -496,6 +497,9 @@ form.account p a:hover {
 }
 form.account span {
   max-width: 40%;
+}
+form.account input[type=date], form.account select {
+  background-color: #c4afd6;
 }
 
 table.account.orders {

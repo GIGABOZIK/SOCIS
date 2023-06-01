@@ -51,7 +51,7 @@ class AccountController extends Controller {
 
     public function profileAction() {
         $projectTypes = $this->model->getProjectTypes();
-        $hasOrders = !empty($this->model->getOrders('`id`', $userId = $_SESSION['user']['id']));
+        $hasOrders = !empty($this->model->getOrders('`id`', $userId = $_SESSION['user']['id'], $queryType = $_SESSION['user']['role_name']));
         $this->view->render($titlePage = 'Профиль', $titleBrand = 'SOCIS', $vars = [
             'hasOrders' => $hasOrders,
             'projectTypes' => $projectTypes,
@@ -60,8 +60,7 @@ class AccountController extends Controller {
     }
 
 
-
-
+    //### ORDERS
     public function ordersAction() {
         if (!empty($_POST)) {
             $response = $this->model->createNewOrder($_POST);
@@ -93,6 +92,8 @@ class AccountController extends Controller {
             'date_created_desc'  => '`date_created` DESC',
             'date_deadline_asc'   => '`date_deadline`',
             'date_deadline_desc'  => '`date_deadline` DESC',
+            'userLogin_asc'   => '`userLogin`',
+            'userLogin_desc'  => '`userLogin` DESC',
         );
 
         /* Проверка GET-переменной */
@@ -104,7 +105,7 @@ class AccountController extends Controller {
         }
 
         /* Запрос в БД */
-        $orderList = $this->model->getOrders($sort_sql, $userId = $_SESSION['user']['id']);
+        $orderList = $this->model->getOrders($sort_sql, $userId = $_SESSION['user']['id'], $queryType = $_SESSION['user']['role_name']);
         return $orderList;
     }
 
