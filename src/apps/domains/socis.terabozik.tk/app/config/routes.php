@@ -2,20 +2,6 @@
 
 //TODO - Это необходимо автоматизировать в будущем
 
-/*
-# Для каждого маршрута необходимо создать:
-> Запись самого маршрута в этом файле (указать controller и action)
-    @ /config/routes.php
-    > Обработчик (контроллер) (может быть один для нескольких маршрутов) (файл-класс)
-        @ /controllers/`Controller`Controller.php
-    > Поведение (действие) в указанном контроллере (метод класса)
-        @ `Controller`Controller/`action`Action()
-> Корректный список прав доступа с указанием каждого созданного поведения (return [])
-    @ /acl/`controller`ACL.php
-> Отображение (отправляемый html фрагмент в <body>)
-    @ /views/`controller`/`action'.php
-> чота еще
-*/
 return [
     //# EXAMPLE
     'example' => [
@@ -83,59 +69,8 @@ return [
         'controller' => 'account',
         'action' => 'orders',
     ],
-    //### Канбан
-    'account/kanban' => [
-        'controller' => 'account',
-        'action' => 'kanban',
-    ],
     //## 
 
-
-
-
-
-
-
-    //# REST API - переложить на поддомен
-    /**
-     *  Переделать для работы с поддоменами в пределах фреймворка
-     *  return [
-     *      '' => [
-     *          '' => [
-     *              'controller' => 'main',
-     *              'action' => 'index',
-     *          ],
-     *          'account/login' => [
-     *              'controller' => 'accout',
-     *              'action' => 'login',
-     *          ],
-     *      ],
-     *      'api' => [
-     *          '' => [
-     *              'controller' => 'api',
-     *              'action' => 'index',
-     *          ],
-     *      ],
-     *  ]
-     */
-    // 'api' => [
-    //     'controller' => 'api',
-    //     'action' => 'index',
-    // ],
-
-    // //# Утилитки
-    // 'utilities' => [
-    //     'controller' => 'utilities',
-    //     'action' => 'index',
-    // ],
-
-    // //## Страница быстрого запуска
-    // 'utilities/quickbar' => [
-    //     'controller' => 'utilities',
-    //     'action' => 'quickbar',
-    // ],
-    // //## 
-    // //% + Можно алиасы делать.. но не надо..
 ];
 
 ?>

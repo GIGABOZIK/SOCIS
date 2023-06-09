@@ -13,7 +13,7 @@ class AccountModel extends Model {
         return $result;
     }
 
-    //# НУЖДАЕТСЯ В УЛУЧШЕНИЯХ И ОПТИМИЗАЦИИ
+    //# Базовые вещи тут - их стоит переделать
 
     //## SignUP
     public function userSignUp($var = []) {
