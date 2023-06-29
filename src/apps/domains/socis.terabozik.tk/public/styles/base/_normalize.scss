@@ -9,6 +9,11 @@
     //-_-//
 }
 
+*::selection {
+    background-color: color.adjust($base-color, $lightness: -5%, $hue: 25);
+    text-decoration: underline;
+}
+
 html {
     color-scheme: light dark;
 }
