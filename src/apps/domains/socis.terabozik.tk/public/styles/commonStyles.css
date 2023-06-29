@@ -16,6 +16,16 @@
   box-sizing: border-box;
 }
 
+*::-moz-selection {
+  background-color: #ddc0de;
+  text-decoration: underline;
+}
+
+*::selection {
+  background-color: #ddc0de;
+  text-decoration: underline;
+}
+
 html {
   color-scheme: light dark;
 }
